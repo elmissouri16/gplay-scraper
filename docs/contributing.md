@@ -7,7 +7,7 @@ Thank you for investing time in GPlay Scraper! The canonical contributor guide l
 ```bash
 git clone https://github.com/yourusername/gplay-scraper.git
 cd gplay-scraper
-uv sync  # creates .venv and installs dependencies
+uv sync --extra dev  # creates .venv and installs dev dependencies
 ```
 
 Run the test suite before opening a pull request:

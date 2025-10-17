@@ -1,9 +1,18 @@
 [project]
 name = "gplay-scraper"
 version = "0.1.0"
+description = "Advanced Google Play Store scraper with 65+ fields, reviews, charts, and ASO tooling."
+readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "beautifulsoup4>=4.9.0",
     "curl-cffi>=0.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
     "pytest>=6.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
 ]

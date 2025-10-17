@@ -15,7 +15,8 @@ All notable changes to this project will be documented in this file.
 ### Documentation
 
 - Retired the Sphinx toolchain in favour of Markdown docs that live directly under `docs/`.
-- Updated contributor workflows to rely on `uv` for environment management and dependency syncing.
+- Updated contributor workflows to recommend `uv` for local development while keeping pip the default for end users.
+- Documented the dual pip/uv installation paths and clarified how to install development extras.
 
 ## [1.0.4] - 2025-10-16
 

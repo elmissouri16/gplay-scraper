@@ -26,6 +26,9 @@ cd gplay-scraper
 pip install -e .
 # or, using uv:
 uv pip install --editable .
+
+# include dev extras for contributors
+uv sync --extra dev
 ```
 
 ## Verify Your Setup

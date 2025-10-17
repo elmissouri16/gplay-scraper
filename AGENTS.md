@@ -7,7 +7,7 @@
 - Markdown docs sit in `docs/`, static assets in `assets/`, and sample responses in `output/`. Dependency pins reside in `pyproject.toml` and `uv.lock`.
 
 ## Build, Test, and Development Commands
-- `uv sync` — create `.venv/` and install project dependencies in editable mode.
+- `uv sync --extra dev` — create `.venv/` and install project plus developer dependencies in editable mode.
 - `uv run python -m pytest tests -v` — execute the full test suite; add `-k pattern` to focus on a feature.
 - `uv run python -m pytest tests -k developer -vv` — iterate quickly on focused scenarios.
 - Docs require no build step—edit `docs/*.md` directly and preview with your editor or GitHub.

@@ -1,13 +1,40 @@
+from __future__ import annotations
+
+import pathlib
+
 from setuptools import setup, find_packages
 
-with open("README.md", "r", encoding="utf-8") as fh:
+try:
+    import tomllib  # Python 3.11+
+except ModuleNotFoundError:  # pragma: no cover - fallback for older pythons
+    try:
+        import tomli as tomllib  # type: ignore
+    except ModuleNotFoundError:  # pragma: no cover - last-resort fallback
+        tomllib = None  # type: ignore
+
+ROOT = pathlib.Path(__file__).parent
+
+with (ROOT / "README.md").open("r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-requirements = [
-    "beautifulsoup4>=4.9.0",
-    "curl-cffi>=0.5.0",
-    "pytest>=6.0.0",
-]
+if tomllib is not None:
+    with (ROOT / "pyproject.toml").open("rb") as fh:
+        project_table = tomllib.load(fh).get("project", {})
+    requirements = project_table.get("dependencies", [])
+    optional_dependencies = project_table.get("optional-dependencies", {})
+else:  # pragma: no cover - minimal fallback if tomllib/tomli unavailable
+    requirements = [
+        "beautifulsoup4>=4.9.0",
+        "curl-cffi>=0.5.0",
+    ]
+    optional_dependencies = {
+        "dev": [
+            "pytest>=6.0.0",
+            "pytest-cov>=4.0.0",
+            "black>=22.0.0",
+            "flake8>=5.0.0",
+        ]
+    }
 
 setup(
     name="gplay-scraper",
@@ -33,10 +60,7 @@ setup(
     },
     packages=find_packages(exclude=["tests*", "docs*", "examples*"]),
     install_requires=requirements,
-    extras_require={
-        "dev": ["pytest>=7.0.0", "pytest-cov>=4.0.0", "black>=22.0.0", "flake8>=5.0.0"],
-        "all": ["pytest>=7.0.0", "pytest-cov>=4.0.0", "black>=22.0.0", "flake8>=5.0.0"],
-    },
+    extras_require=optional_dependencies,
     python_requires=">=3.8",
     keywords="google-play-scraper, playstore-scraper, android-scraper, gplay-scraper, google-play-store, play-store-api, app-data-extraction, app-analytics, mobile-analytics, aso-tools, app-store-optimization, mobile-seo, app-marketing, keyword-research, competitor-analysis, market-research, app-reviews, user-reviews, review-scraper, rating-analysis, sentiment-analysis, developer-tools, api-scraping, web-scraping, data-mining, python-scraper, automation-tools, business-intelligence, market-intelligence, competitive-intelligence, app-monitoring, trend-analysis, performance-tracking, install-tracking, revenue-analysis",
     classifiers=[
