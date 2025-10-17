@@ -27,7 +27,7 @@ print(apps)
 
 ## HTTP Client
 
-GPlay Scraper now relies exclusively on [`curl_cffi`](https://github.com/yifeikong/curl_cffi) with a Chrome fingerprint. Initialising `GPlayScraper()` without arguments uses this client automatically, and passing any other `http_client` value raises a `ValueError`.
+GPlay Scraper now relies exclusively on [`curl_cffi`](https://github.com/yifeikong/curl_cffi) with a Chrome fingerprint. Initialising `GPlayScraper()` without arguments uses this client automatically; overriding the HTTP backend is not supported.
 
 ---
 
@@ -230,7 +230,6 @@ if paid_apps:
 ## Parameters
 
 ### Initialization
-- `http_client` (str, optional) - Only `"curl_cffi"` is supported; other values raise `ValueError`
 
 ### Method Parameters
 - `query` (str, required) - Search keyword or phrase

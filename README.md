@@ -181,7 +181,7 @@ Extract comprehensive information about any app including ratings, installs, pri
 ```python
 from gplay_scraper import GPlayScraper
 
-scraper = GPlayScraper(http_client="curl_cffi")
+scraper = GPlayScraper()
 
 # Print all app data as JSON
 scraper.app_print_all("com.whatsapp", lang="en", country="us")
@@ -201,7 +201,7 @@ Search the Play Store by keyword, app name, or category to discover apps.
 ```python
 from gplay_scraper import GPlayScraper
 
-scraper = GPlayScraper(http_client="curl_cffi")
+scraper = GPlayScraper()
 
 # Print all search results as JSON
 scraper.search_print_all("fitness tracker", count=20, lang="en", country="us")
@@ -221,7 +221,7 @@ Get user reviews with ratings, comments, timestamps, and helpful votes for senti
 ```python
 from gplay_scraper import GPlayScraper
 
-scraper = GPlayScraper(http_client="curl_cffi")
+scraper = GPlayScraper()
 
 # Print all reviews as JSON
 scraper.reviews_print_all("com.whatsapp", count=100, sort="NEWEST", lang="en", country="us")
@@ -241,7 +241,7 @@ Retrieve all apps published by a specific developer using their developer ID.
 ```python
 from gplay_scraper import GPlayScraper
 
-scraper = GPlayScraper(http_client="curl_cffi")
+scraper = GPlayScraper()
 
 # Print all developer apps as JSON
 scraper.developer_print_all("5700313618786177705", count=50, lang="en", country="us")
@@ -261,7 +261,7 @@ Access Play Store top charts including top free, top paid, and top grossing apps
 ```python
 from gplay_scraper import GPlayScraper
 
-scraper = GPlayScraper(http_client="curl_cffi")
+scraper = GPlayScraper()
 
 # Print top free games as JSON
 scraper.list_print_all("TOP_FREE", "GAME", count=50, lang="en", country="us")
@@ -281,7 +281,7 @@ Discover apps similar to a reference app for competitive analysis and market res
 ```python
 from gplay_scraper import GPlayScraper
 
-scraper = GPlayScraper(http_client="curl_cffi")
+scraper = GPlayScraper()
 
 # Print similar apps as JSON
 scraper.similar_print_all("com.whatsapp", count=30, lang="en", country="us")
@@ -301,7 +301,7 @@ Get autocomplete suggestions and keyword ideas for ASO and market research.
 ```python
 from gplay_scraper import GPlayScraper
 
-scraper = GPlayScraper(http_client="curl_cffi")
+scraper = GPlayScraper()
 
 # Print search suggestions as JSON
 scraper.suggest_print_all("photo editor", count=10, lang="en", country="us")

@@ -157,7 +157,7 @@ scraper.reviews_analyze("com.whatsapp", count=50, lang="fr", country="fr")
 
 ## 🔧 HTTP Client
 
-GPlay Scraper now relies exclusively on [`curl_cffi`](https://github.com/yifeikong/curl_cffi) with built-in Chrome impersonation. Initialising `GPlayScraper()` without arguments uses this client automatically, and providing any other `http_client` value raises a `ValueError`.
+GPlay Scraper now relies exclusively on [`curl_cffi`](https://github.com/yifeikong/curl_cffi) with built-in Chrome impersonation. Initialising `GPlayScraper()` without arguments uses this client automatically; there is no override parameter for alternate HTTP clients.
 
 ## 📊 What Can You Scrape?
 

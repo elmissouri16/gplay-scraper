@@ -13,15 +13,14 @@ logger = logging.getLogger(__name__)
 class AppScraper:
     """Scraper for fetching app details from Google Play Store."""
     
-    def __init__(self, rate_limit_delay: float = None, http_client: str = None, proxies: ProxyConfig = None):
+    def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
         """Initialize AppScraper with HTTP client.
-        
+
         Args:
             rate_limit_delay: Delay between requests
-            http_client: HTTP client name
             proxies: Optional proxy configuration
         """
-        self.http_client = HttpClient(rate_limit_delay, http_client, proxies)
+        self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
         """Update proxy configuration for subsequent requests."""
@@ -100,9 +99,9 @@ class AppScraper:
 class SearchScraper:
     """Scraper for fetching search results from Google Play Store."""
     
-    def __init__(self, rate_limit_delay: float = None, http_client: str = None, proxies: ProxyConfig = None):
+    def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
         """Initialize SearchScraper with HTTP client."""
-        self.http_client = HttpClient(rate_limit_delay, http_client, proxies)
+        self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
         """Update proxy configuration for subsequent requests."""
@@ -223,9 +222,9 @@ class ReviewsScraper:
         'RATING': 3     # Sorted by rating
     }
     
-    def __init__(self, rate_limit_delay: float = None, http_client: str = None, proxies: ProxyConfig = None):
+    def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
         """Initialize ReviewsScraper with HTTP client."""
-        self.http_client = HttpClient(rate_limit_delay, http_client, proxies)
+        self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
         """Update proxy configuration for subsequent requests."""
@@ -295,9 +294,9 @@ class ReviewsScraper:
 class DeveloperScraper:
     """Scraper for fetching developer portfolio from Google Play Store."""
     
-    def __init__(self, rate_limit_delay: float = None, http_client: str = None, proxies: ProxyConfig = None):
+    def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
         """Initialize DeveloperScraper with HTTP client."""
-        self.http_client = HttpClient(rate_limit_delay, http_client, proxies)
+        self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
         """Update proxy configuration for subsequent requests."""
@@ -352,9 +351,9 @@ class DeveloperScraper:
 class SimilarScraper:
     """Scraper for fetching similar apps from Google Play Store."""
     
-    def __init__(self, rate_limit_delay: float = None, http_client: str = None, proxies: ProxyConfig = None):
+    def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
         """Initialize SimilarScraper with HTTP client."""
-        self.http_client = HttpClient(rate_limit_delay, http_client, proxies)
+        self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
         """Update proxy configuration for subsequent requests."""
@@ -429,9 +428,9 @@ class ListScraper:
         'TOP_GROSSING': 'topgrossing'       # Top grossing apps
     }
     
-    def __init__(self, rate_limit_delay: float = None, http_client: str = None, proxies: ProxyConfig = None):
+    def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
         """Initialize ListScraper with HTTP client."""
-        self.http_client = HttpClient(rate_limit_delay, http_client, proxies)
+        self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
         """Update proxy configuration for subsequent requests."""
@@ -467,10 +466,10 @@ class ListScraper:
 
 class SuggestScraper:
     """Scraper for fetching search suggestions from Google Play Store."""
-    
-    def __init__(self, rate_limit_delay: float = None, http_client: str = None, proxies: ProxyConfig = None):
+
+    def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
         """Initialize SuggestScraper with HTTP client."""
-        self.http_client = HttpClient(rate_limit_delay, http_client, proxies)
+        self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
         """Update proxy configuration for subsequent requests."""

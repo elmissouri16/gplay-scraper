@@ -13,11 +13,8 @@ GPlay Scraper ships with a single HTTP backend: [`curl_cffi`](https://github.com
 ```python
 from gplay_scraper import GPlayScraper
 
-# curl_cffi is configured automatically
+# curl_cffi is configured automatically; no override parameter is required
 scraper = GPlayScraper()
-
-# Passing any other http_client value raises ValueError
-scraper = GPlayScraper(http_client="curl_cffi")  # explicit but optional
 ```
 
 ## Installation
@@ -34,3 +31,4 @@ pip install gplay-scraper
 - **ImportError for curl_cffi** – Ensure `curl-cffi>=0.5.0` is installed in your environment.
 - **Blocked requests** – Keep `curl_cffi` up to date and tune `Config.RATE_LIMIT_DELAY`; the session already impersonates Chrome, so manual user-agent rotation is rarely needed.
 - **Custom sessions** – Direct session injection is not supported. The scraper standardises on `curl_cffi` for consistency.
+- **No alternate client** – The HTTP backend is fixed to `curl_cffi`; there is no parameter to switch clients.

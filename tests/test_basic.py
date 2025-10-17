@@ -21,14 +21,6 @@ class TestBasicFunctionality(unittest.TestCase):
         scraper = GPlayScraper()
         self.assertIsInstance(scraper, GPlayScraper)
     
-    def test_scraper_initialization_with_http_client(self):
-        """Test that GPlayScraper uses curl_cffi and rejects other clients"""
-        scraper = GPlayScraper(http_client="curl_cffi")
-        self.assertIsInstance(scraper, GPlayScraper)
-        
-        with self.assertRaises(ValueError):
-            GPlayScraper(http_client="requests")
-    
     def test_scraper_has_required_methods(self):
         """Test that GPlayScraper has all required methods"""
         scraper = GPlayScraper()

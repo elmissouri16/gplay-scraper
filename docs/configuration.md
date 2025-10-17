@@ -189,7 +189,7 @@ except Exception as exc:
 
 - **Rate limiting** – Keep at least a one second delay to avoid throttling.
 - **Error handling** – Wrap scraper calls in try/except in production.
-- **HTTP backend** – `curl_cffi` is mandatory; do not override `http_client`.
+- **HTTP backend** – `curl_cffi` is mandatory; the client is fixed and non-configurable.
 - **Use `get_fields()`** – Prefer batch getters over multiple `get_field()` calls.
 - **Timeouts** – Adjust to match your network’s characteristics.
 - **Logging** – Enable debug logs when diagnosing issues.

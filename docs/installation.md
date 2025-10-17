@@ -53,7 +53,7 @@ scraper.app_print_all("com.whatsapp")  # alternate smoke test
       sys.stdout.reconfigure(encoding="utf-8")
   ```
 
-- **HTTP client mismatch** – GPlay Scraper standardises on `curl_cffi`. Initialising `GPlayScraper()` uses this backend automatically and passing any other `http_client` value raises `ValueError`.
+- **HTTP client** – GPlay Scraper standardises on `curl_cffi`. Initialising `GPlayScraper()` uses this backend automatically and the client cannot be overridden.
 
 - **Common parameters** – All methods accept `lang`, `country`, and `count`.
 

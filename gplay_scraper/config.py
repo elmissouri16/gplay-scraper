@@ -66,7 +66,6 @@ class Config:
         "HTTP_CLIENT_NOT_AVAILABLE": "{client} not available",
         "HTTP_ERROR": "HTTP {status_code} Error",
         "NO_HTTP_CLIENT": "No HTTP client libraries found",
-        "UNKNOWN_CLIENT_TYPE": "Unknown client type: {client_type}. Supported option: curl_cffi",
         "APP_NOT_FOUND": "App not found: {app_id}",
         "SEARCH_NOT_FOUND": "Search not found: {query}",
         "REVIEWS_NOT_FOUND": "Reviews not found for app: {app_id}",

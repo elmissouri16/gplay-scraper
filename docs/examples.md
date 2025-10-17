@@ -228,7 +228,7 @@ for lang, country, label in languages:
 
 ## HTTP Client Reminder
 
-`GPlayScraper()` always uses `curl_cffi`. Passing a different `http_client` raises `ValueError`.
+`GPlayScraper()` always uses `curl_cffi`; the HTTP backend is fixed and cannot be overridden.
 
 ## Real-World Use Cases
 

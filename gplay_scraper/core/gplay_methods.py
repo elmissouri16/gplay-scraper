@@ -26,14 +26,10 @@ logger = logging.getLogger(__name__)
 
 class AppMethods:
     """Methods for extracting app details with 65+ fields."""
-    def __init__(self, http_client: str = None, proxies: ProxyConfig = None):
-        """Initialize AppMethods with scraper and parser.
-        
-        Args:
-            http_client: Optional HTTP client name
-            proxies: Optional proxy configuration
-        """
-        self.scraper = AppScraper(http_client=http_client, proxies=proxies)
+
+    def __init__(self, proxies: ProxyConfig = None):
+        """Initialize AppMethods with scraper and parser."""
+        self.scraper = AppScraper(proxies=proxies)
         self.parser = AppParser()
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
@@ -144,14 +140,10 @@ class AppMethods:
 
 class SearchMethods:
     """Methods for searching apps by keyword."""
-    def __init__(self, http_client: str = None, proxies: ProxyConfig = None):
-        """Initialize SearchMethods with scraper and parser.
-        
-        Args:
-            http_client: Optional HTTP client name
-            proxies: Optional proxy configuration
-        """
-        self.scraper = SearchScraper(http_client=http_client, proxies=proxies)
+
+    def __init__(self, proxies: ProxyConfig = None):
+        """Initialize SearchMethods with scraper and parser."""
+        self.scraper = SearchScraper(proxies=proxies)
         self.parser = SearchParser()
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
@@ -269,14 +261,10 @@ class SearchMethods:
 
 class ReviewsMethods:
     """Methods for extracting user reviews and ratings."""
-    def __init__(self, http_client: str = None, proxies: ProxyConfig = None):
-        """Initialize ReviewsMethods with scraper and parser.
-        
-        Args:
-            http_client: Optional HTTP client name
-            proxies: Optional proxy configuration
-        """
-        self.scraper = ReviewsScraper(http_client=http_client, proxies=proxies)
+
+    def __init__(self, proxies: ProxyConfig = None):
+        """Initialize ReviewsMethods with scraper and parser."""
+        self.scraper = ReviewsScraper(proxies=proxies)
         self.parser = ReviewsParser()
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
@@ -410,14 +398,10 @@ class ReviewsMethods:
 
 class DeveloperMethods:
     """Methods for getting all apps from a developer."""
-    def __init__(self, http_client: str = None, proxies: ProxyConfig = None):
-        """Initialize DeveloperMethods with scraper and parser.
-        
-        Args:
-            http_client: Optional HTTP client name
-            proxies: Optional proxy configuration
-        """
-        self.scraper = DeveloperScraper(http_client=http_client, proxies=proxies)
+
+    def __init__(self, proxies: ProxyConfig = None):
+        """Initialize DeveloperMethods with scraper and parser."""
+        self.scraper = DeveloperScraper(proxies=proxies)
         self.parser = DeveloperParser()
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
@@ -532,14 +516,10 @@ class DeveloperMethods:
 
 class SimilarMethods:
     """Methods for finding similar/competitor apps."""
-    def __init__(self, http_client: str = None, proxies: ProxyConfig = None):
-        """Initialize SimilarMethods with scraper and parser.
-        
-        Args:
-            http_client: Optional HTTP client name
-            proxies: Optional proxy configuration
-        """
-        self.scraper = SimilarScraper(http_client=http_client, proxies=proxies)
+
+    def __init__(self, proxies: ProxyConfig = None):
+        """Initialize SimilarMethods with scraper and parser."""
+        self.scraper = SimilarScraper(proxies=proxies)
         self.parser = SimilarParser()
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
@@ -654,14 +634,10 @@ class SimilarMethods:
 
 class ListMethods:
     """Methods for getting top charts (free, paid, grossing)."""
-    def __init__(self, http_client: str = None, proxies: ProxyConfig = None):
-        """Initialize ListMethods with scraper and parser.
-        
-        Args:
-            http_client: Optional HTTP client name
-            proxies: Optional proxy configuration
-        """
-        self.scraper = ListScraper(http_client=http_client, proxies=proxies)
+
+    def __init__(self, proxies: ProxyConfig = None):
+        """Initialize ListMethods with scraper and parser."""
+        self.scraper = ListScraper(proxies=proxies)
         self.parser = ListParser()
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
@@ -776,14 +752,10 @@ class ListMethods:
 
 class SuggestMethods:
     """Methods for getting search suggestions and autocomplete."""
-    def __init__(self, http_client: str = None, proxies: ProxyConfig = None):
-        """Initialize SuggestMethods with scraper and parser.
-        
-        Args:
-            http_client: Optional HTTP client name
-            proxies: Optional proxy configuration
-        """
-        self.scraper = SuggestScraper(http_client=http_client, proxies=proxies)
+
+    def __init__(self, proxies: ProxyConfig = None):
+        """Initialize SuggestMethods with scraper and parser."""
+        self.scraper = SuggestScraper(proxies=proxies)
         self.parser = SuggestParser()
     
     def set_proxies(self, proxies: ProxyConfig) -> None:

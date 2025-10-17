@@ -23,25 +23,23 @@ class GPlayScraper:
     - Suggest Methods: Get search suggestions
     
     Args:
-        http_client: HTTP client to use (only 'curl_cffi' is supported)
         proxies: Optional proxy configuration applied to all HTTP calls
     """
     
-    def __init__(self, http_client: str = None, proxies: ProxyConfig = None):
+    def __init__(self, proxies: ProxyConfig = None):
         """Initialize GPlayScraper with all method types.
         
         Args:
-            http_client: Optional HTTP client name. Defaults to 'curl_cffi'.
             proxies: Optional proxy configuration applied to all HTTP calls.
         """
         # Initialize all 7 method types
-        self.app_methods = AppMethods(http_client=http_client, proxies=proxies)
-        self.search_methods = SearchMethods(http_client=http_client, proxies=proxies)
-        self.reviews_methods = ReviewsMethods(http_client=http_client, proxies=proxies)
-        self.developer_methods = DeveloperMethods(http_client=http_client, proxies=proxies)
-        self.similar_methods = SimilarMethods(http_client=http_client, proxies=proxies)
-        self.list_methods = ListMethods(http_client=http_client, proxies=proxies)
-        self.suggest_methods = SuggestMethods(http_client=http_client, proxies=proxies)
+        self.app_methods = AppMethods(proxies=proxies)
+        self.search_methods = SearchMethods(proxies=proxies)
+        self.reviews_methods = ReviewsMethods(proxies=proxies)
+        self.developer_methods = DeveloperMethods(proxies=proxies)
+        self.similar_methods = SimilarMethods(proxies=proxies)
+        self.list_methods = ListMethods(proxies=proxies)
+        self.suggest_methods = SuggestMethods(proxies=proxies)
 
     def set_proxies(self, proxies: ProxyConfig) -> None:
         """Update proxy configuration for all method groups at runtime."""

@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Breaking Changes
 
 - Removed support for alternative HTTP clients; `curl_cffi` is now the sole backend.
+- Dropped the `http_client` initializer argument; the scraper always uses the bundled `curl_cffi` session.
 
 ### Dependency Updates
 

@@ -8,8 +8,6 @@ from urllib.parse import quote
 from ..config import Config
 from ..exceptions import AppNotFoundError, NetworkError
 
-SUPPORTED_CLIENT = "curl_cffi"
-
 logger = logging.getLogger(__name__)
 
 ProxyConfig = Optional[Union[str, Dict[str, str]]]
@@ -18,25 +16,18 @@ ProxyConfig = Optional[Union[str, Dict[str, str]]]
 class HttpClient:
     """HTTP client backed exclusively by curl_cffi."""
 
-    def __init__(self, rate_limit_delay: float = None, client_type: str = None, proxies: ProxyConfig = None):
+    def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
         """Initialize HTTP client backed by curl_cffi."""
         self.headers = Config.get_headers()
         self.timeout = Config.DEFAULT_TIMEOUT
         self.rate_limit_delay = rate_limit_delay or Config.RATE_LIMIT_DELAY
         self.last_request_time = 0
-        self.client_type = client_type or SUPPORTED_CLIENT
         self.proxies: Dict[str, str] = self._normalize_proxies(proxies)
         self.session = None
         self._setup_client()
     
     def _setup_client(self):
-        """Setup curl_cffi session and validate requested client type."""
-        if self.client_type is None:
-            self.client_type = SUPPORTED_CLIENT
-        
-        if self.client_type != SUPPORTED_CLIENT:
-            raise ValueError(Config.ERROR_MESSAGES["UNKNOWN_CLIENT_TYPE"].format(client_type=self.client_type))
-        
+        """Setup curl_cffi session."""
         try:
             from curl_cffi import requests as curl_requests
         except ImportError as exc:
@@ -44,7 +35,6 @@ class HttpClient:
         
         self.session = curl_requests.Session(impersonate="chrome110")
         self._apply_proxies()
-        self.client_type = SUPPORTED_CLIENT
     
     def _normalize_proxies(self, proxies: ProxyConfig) -> Dict[str, str]:
         """Normalise proxy configuration to a requests-compatible dictionary."""
