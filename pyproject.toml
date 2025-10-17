@@ -1,0 +1,9 @@
+[project]
+name = "gplay-scraper"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.9.0",
+    "curl-cffi>=0.5.0",
+    "pytest>=6.0.0",
+]

@@ -1,0 +1,111 @@
+{
+  "appId": "com.playdead.limbo.full",
+  "title": "LIMBO",
+  "summary": "Uncertain of his sister's fate, a boy enters LIMBO.",
+  "description": "What the press said: \n\n“Limbo is as close to perfect at what it does as a game can get.” \n10/10 – Destructoid \n\n“The game is a masterpiece.” \n5/5 – GiantBomb \n\n“Limbo is genius. Freaky, weird genius. Disturbing, uncomfortable genius.” \n5/5 – The Escapist \n\n“Dark, disturbing, yet eerily beautiful, Limbo is a world that deserves to be explored.” \n5/5 – Joystiq \n\nWinner of more than 100 awards, including: \n\nGameinformer’s “Best Downloadable” \nGamespot’s “Best Puzzle Game” \nKotaku’s “The Best Indie Game” \nGameReactor’s “Digital Game of the Year” \nSpike TV’s “Best Independent Game” \nX-Play’s “Best Downloadable Game” \nIGN’s “Best Horror Game”\n\nLimbo is an award-winning indie adventure, critically acclaimed for its captivating puzzle design and immersive sound and visuals. Its dark, misty spaces and haunting narrative will stay with you forever.",
+  "genre": "Adventure",
+  "genreId": "GAME_ADVENTURE",
+  "categories": [
+    "Adventure"
+  ],
+  "available": true,
+  "released": "Feb 11, 2015",
+  "appAgeDays": 3898,
+  "lastUpdated": "Mar 11, 2025",
+  "updatedTimestamp": 1741708881,
+  "icon": "https://play-lh.googleusercontent.com/FJ8e7NYhyjzrjuROUSpigJ1TQNnZKUDh6AZc1SFjiD665bZsxr_7zus0DzlHIrC6Lgk=w9999",
+  "headerImage": "https://play-lh.googleusercontent.com/dPW585vpaYb9oNLGwCc9mrMc90NwUjzxYb-pJK07sUBhAmRib6DW5P3zSeA7DecMEw=w9999",
+  "screenshots": [
+    "https://play-lh.googleusercontent.com/GaptorFLFNZRTHSaV4Wh3R4nnhnd_LCCW1fNIwLERCyNcI3X5LOlK3TxeCKZLeoZowE=w9999",
+    "https://play-lh.googleusercontent.com/mAQtHG90gFvktB5AkGhqPqZEW6s-Ghqql4Jq6_Az4Y2hqOl7JN5oDG3MNHJJEEr4Rg=w9999",
+    "https://play-lh.googleusercontent.com/yxKadViR_JwU7Q5_s6OCEx3yU9WLR6Bo--kkkFThwUx5vNgxSPf3zbDDkjCWu_y0VQ=w9999",
+    "https://play-lh.googleusercontent.com/K1oLWUAPvUNSjbYQI4wHrDTwS2og0yDy5Hg2p2fCUlyOx9FchJzISBFyWj6Agip0Cms=w9999",
+    "https://play-lh.googleusercontent.com/Kj9lmcNbHpiaqJJLKvqwI9oPUKlO6Uqq0Alx5LjOZx7MrmCYA1JTQPtAO5FMpqUXcs2S=w9999",
+    "https://play-lh.googleusercontent.com/15Omhs7Wf3nNV0OL6SeAn7S-IL7_w0wRJjFcTWySrJWDXVnAWDvnepe44NtpdP4V-DRw=w9999",
+    "https://play-lh.googleusercontent.com/sMcfQtOUE_DgUOYY9vPVW6SCuAlwNSdbBcfmEMuNbjj9cFcAObSVV_06MOCMHNNJ_A=w9999",
+    "https://play-lh.googleusercontent.com/IJyIN5LH_WE9Wg8wurdKYH_mZZ3uZoc8qMIl4dcGAsorEDeSBnGGy7R9BW3VT_uwE4Q=w9999",
+    "https://play-lh.googleusercontent.com/zID8lHY-aSu8XwlNFbGeyYL9wHW4wcO3cpXb4nL6VzK404wE-Q164TL6a5uytSrbV0o=w9999",
+    "https://play-lh.googleusercontent.com/ofwJOH4PAJa1_-1YBopixmk1ps6A2Fk66yLj6TsW3aIEXLzLzhWoXuEKhyHc2kw72A=w9999",
+    "https://play-lh.googleusercontent.com/-72WGAXqv2DwytmhHKtXITNWD-nRrx1bsm7SFkckFFO0DoClhBxhukB0EhjBJ2bGDA=w9999",
+    "https://play-lh.googleusercontent.com/Ry0IjKLkNJpGCHHz17aW_dFa9geqgQyHJYyshAWhgzQCCQ55nUJgC8bkyE_TTxBxNQ=w9999",
+    "https://play-lh.googleusercontent.com/E-jL0foVeggCKVnuT8Y04jgnMZtpwxUqcPkEn29dDnI72rZk-r8N5yW5gW8tduLGFw=w9999",
+    "https://play-lh.googleusercontent.com/MBqe75pbbkCna_Nd3e8fa0nxKDwLrW17Q9o_y939DEXiiCxIQ_3DSxaRNto_AheG3XU=w9999",
+    "https://play-lh.googleusercontent.com/kBUx7Fp1gPWIyLpSo-VPf-o0inzbTUqQLpZ7mhCjLz4SR377SBCfDC4M3AZ78TRA2b4=w9999",
+    "https://play-lh.googleusercontent.com/_Uw03W-2-u3OnLPY7s5qaHzgdOPXGFezuXGHW9wQNbQSS82dzs-grm0VCBJPhcht-Q0O=w9999",
+    "https://play-lh.googleusercontent.com/xY4o2dmT4W8bVUthLgglH4IvZL-8Hn_7CSlgPbzLcJIuqdvJzcR7abQtN_TPxT1AvW0=w9999",
+    "https://play-lh.googleusercontent.com/-jMy1IndLzUj5YYaAMFyoeKALVNFgzH5giNhm4_45XcmOUXGXnr_1RNwjm_7q4X1g2vs=w9999",
+    "https://play-lh.googleusercontent.com/5sV41ilEro7ryUlt73TBfhnd5yqsY-Chv3_VxT2-qvRVbJM1E0vDYw5nK7Y_fvXh=w9999",
+    "https://play-lh.googleusercontent.com/Bd4BUBcKHDJCdPQ65jy-cVuZSldpIiCyXCprH3ZWjWGEMadCIf1j2VUd6_Q35luJ7zs=w9999",
+    "https://play-lh.googleusercontent.com/SZz2ehvolv0mNQBW6cZJ2Tm9mSVWl_S_2F2Kmojk8Kc-koWxOTyM5ZEx_Fd5uTo8Bi0=w9999",
+    "https://play-lh.googleusercontent.com/EgaZGAiGZ9fXz3BHY00j9-J32hLCRZ17tgG_LiJ-PPB2Kt160VOc_MT5wmWqma-y5GY=w9999",
+    "https://play-lh.googleusercontent.com/s3l_JhA1CbvglJO5XUN3Wlsfgc3c7BKI4xDaL8tjchPhU-Pb-uF9U82s8nOgvgi9KA=w9999",
+    "https://play-lh.googleusercontent.com/foTC5sz9VzPmFwsmDOZVHJL44LSwqcXHlgJdkPnKn38J-mOSr2KPXTvtZkSoDOaA4A=w9999"
+  ],
+  "video": "https://play.google.com/video/lava/web/player/yt:movie:Y4HSyVXKYz8?autoplay=1&embed=play",
+  "videoImage": "https://play-lh.googleusercontent.com/dPW585vpaYb9oNLGwCc9mrMc90NwUjzxYb-pJK07sUBhAmRib6DW5P3zSeA7DecMEw=w9999",
+  "installs": "1,000,000+",
+  "minInstalls": 1000000,
+  "realInstalls": 3292879,
+  "dailyInstalls": 256,
+  "minDailyInstalls": 256,
+  "realDailyInstalls": 844,
+  "monthlyInstalls": 7809,
+  "minMonthlyInstalls": 7809,
+  "realMonthlyInstalls": 25714,
+  "score": 4.376488,
+  "ratings": 80722,
+  "reviews": 3899,
+  "histogram": [
+    6965,
+    2879,
+    2879,
+    8047,
+    59936
+  ],
+  "adSupported": false,
+  "containsAds": false,
+  "version": "1.21",
+  "androidVersion": 7,
+  "maxAndroidApi": 35,
+  "minAndroidApi": 21,
+  "appBundle": "com.playdead.limbo.full",
+  "contentRating": "Teen",
+  "contentRatingDescription": null,
+  "whatsNew": [
+    "Bug fix for Snapdragon 8 Elite/Adreno 830 phones",
+    "Google API updates and crash fix",
+    "Update to packaging format (AAB)",
+    "Small icon update"
+  ],
+  "permissions": {
+    "Photos/Media/Files": [
+      "read the contents of your USB storage"
+    ],
+    "Storage": [
+      "read the contents of your USB storage"
+    ],
+    "Other": [
+      "view network connections",
+      "Google Play license check"
+    ]
+  },
+  "dataSafety": [
+    "No data shared with third parties",
+    "No data collected"
+  ],
+  "price": 3.99,
+  "currency": "USD",
+  "free": false,
+  "offersIAP": false,
+  "inAppProductPrice": null,
+  "sale": false,
+  "originalPrice": null,
+  "developer": "Playdead",
+  "developerId": "9183662361966484245",
+  "developerEmail": "support@playdead.com",
+  "developerWebsite": "http://playdead.com",
+  "developerAddress": "Flæsketorvet 41\n1711 København V\nDenmark",
+  "developerPhone": "+45 53 76 41 00",
+  "privacyPolicy": "https://playdead.com/privacypolicy/index.php",
+  "appUrl": "https://play.google.com/store/apps/details?id=com.playdead.limbo.full"
+}
