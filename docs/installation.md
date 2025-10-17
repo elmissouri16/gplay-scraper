@@ -3,12 +3,19 @@
 ## Requirements
 
 - Python 3.7 or newer
-- `curl-cffi` (installed automatically via `pip install gplay-scraper`)
+- `curl-cffi` is installed automatically with the package
+- [`uv`](https://github.com/astral-sh/uv) 0.4+ (optional, recommended for contributors)
 
 ## Install from PyPI
 
 ```bash
 pip install gplay-scraper
+```
+
+## Install with uv (Optional)
+
+```bash
+uv pip install gplay-scraper
 ```
 
 ## Development Installation
@@ -17,6 +24,8 @@ pip install gplay-scraper
 git clone https://github.com/mohammedcha/gplay-scraper.git
 cd gplay-scraper
 pip install -e .
+# or, using uv:
+uv pip install --editable .
 ```
 
 ## Verify Your Setup

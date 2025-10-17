@@ -6,13 +6,12 @@ Thank you for your interest in contributing!
 
 1. Fork the repository
 2. Clone your fork: `git clone https://github.com/yourusername/gplay-scraper.git`
-3. Install in development mode: `pip install -e .`
-4. Install dev dependencies: `pip install pytest`
+3. Install dependencies and set up the virtual environment: `uv sync`
 
 ## Running Tests
 
 ```bash
-python -m pytest tests/ -v
+uv run python -m pytest tests/ -v
 ```
 
 ## Code Style
@@ -26,7 +25,7 @@ python -m pytest tests/ -v
 1. Create a feature branch: `git checkout -b feature-name`
 2. Make your changes
 3. Add tests for new functionality
-4. Run tests to ensure they pass
+4. Run tests to ensure they pass: `uv run python -m pytest tests/ -v`
 5. Submit a pull request
 
 ## Reporting Issues

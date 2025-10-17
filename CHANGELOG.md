@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 ### Documentation
 
 - Retired the Sphinx toolchain in favour of Markdown docs that live directly under `docs/`.
+- Updated contributor workflows to rely on `uv` for environment management and dependency syncing.
 
 ## [1.0.4] - 2025-10-16
 

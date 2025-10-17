@@ -1,21 +1,36 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-Core scraping logic lives in `gplay_scraper/`, with HTTP clients and dispatching under `core/`, reusable dataclasses in `models/`, shared helpers in `utils/`, and API entry points in `app.py` and `__init__.py`. Tests mirror those areas in `tests/` (`test_app_methods.py`, `test_search_methods.py`, etc.) to cover each public method type. Markdown docs live in `docs/`, runnable examples in `examples/`, static assets in `assets/`, and sample JSON payloads in `output/`. Dependency pins are maintained in `pyproject.toml` and `requirements.txt`.
+- `gplay_scraper/` holds the scraping engine: request orchestration in `core/`, data models in `models/`, and helpers in `utils/`.
+- Public entry points live in `gplay_scraper/__init__.py` and `gplay_scraper/app.py`.
+- Tests mirror the package under `tests/` (for example `tests/test_app_methods.py`), while runnable demos stay in `examples/`.
+- Markdown docs sit in `docs/`, static assets in `assets/`, and sample responses in `output/`. Dependency pins reside in `pyproject.toml` and `uv.lock`.
 
 ## Build, Test, and Development Commands
-- `pip install -e .` — install the library in editable mode for local iteration.
-- `pip install -r requirements.txt` — pull optional clients and tooling used in CI.
-- `python -m pytest tests -v` — execute the full test suite with verbose output.
+- `uv sync` — create `.venv/` and install project dependencies in editable mode.
+- `uv run python -m pytest tests -v` — execute the full test suite; add `-k pattern` to focus on a feature.
+- `uv run python -m pytest tests -k developer -vv` — iterate quickly on focused scenarios.
+- Docs require no build step—edit `docs/*.md` directly and preview with your editor or GitHub.
 
 ## Coding Style & Naming Conventions
-Follow PEP 8 defaults with four-space indentation and descriptive `snake_case` for routines; module-level constants stay upper snake case. Prefer type hints on new or touched signatures and include concise docstrings when you add behavior. Classes should use `PascalCase`, pytest fixtures remain lowercase, and HTTP client identifiers should track the existing `GPlayScraper` public surface.
+- Adhere to PEP 8 with four-space indentation, `snake_case` for functions/modules, `PascalCase` for classes, and UPPER_SNAKE_CASE for constants.
+- Add type hints and concise docstrings when touching signatures; keep public APIs descriptive.
+- Prefer explicit helpers over magic values, and keep logging consistent with existing modules.
+- Use comments sparingly to clarify non-obvious behaviour rather than restating code.
 
 ## Testing Guidelines
-Use pytest for new coverage and place files alongside the feature you extend (e.g., `tests/test_reviews_methods.py`). Name tests `test_<behavior>` and group related assertions inside descriptive classes or functions. When adding network-sensitive logic, rely on fixtures or recorded responses to keep the suite deterministic. Run `python -m pytest tests -k your_scope -vv` while iterating, then confirm `python -m pytest tests -v` before opening a pull request.
+- Use `pytest` exclusively; place new coverage alongside related modules within `tests/`.
+- Name tests `test_<behavior>` and group related assertions in helper functions or classes.
+- Mock or fixture external calls to keep runs deterministic; avoid live network traffic in CI.
+- Ensure `uv run python -m pytest tests -v` passes before submitting and note any expected skips in the PR body.
 
 ## Commit & Pull Request Guidelines
-Commits in this repository favor short, Title Case messages (`Release v1.0.4: Add assets parameter`) and occasionally prefix emoji for clarity; follow that pattern with an imperative summary and optional scope. Push feature work on topic branches, reference any GitHub issues in the body, and include before/after notes for CLI-facing changes. Pull requests should describe motivation, list verification steps, attach relevant screenshots or JSON snippets, and confirm pytest results in the checklist.
+- Commits favour short, Title Case messages (optional emoji prefix), e.g., `🚀 Improve Review Parsing`.
+- Limit each commit to a logical change set and reference GitHub issues where applicable.
+- Pull requests should outline motivation, list verification commands, link supporting issues, and attach screenshots or JSON diffs for user-facing changes.
+- State test outcomes explicitly and mention follow-up tasks or known limitations.
 
-## Documentation & Examples
-Update user-facing docs when signatures or defaults change by editing the Markdown pages under `docs/` or the method guides in `README/`. Keep example scripts in `examples/` minimal and runnable with the documented commands, noting any required environment variables or proxy configuration in docstrings or README snippets.
+## Configuration & Operational Tips
+- `curl_cffi` is the sole supported HTTP backend; do not introduce alternative clients without discussion.
+- Honour `Config.RATE_LIMIT_DELAY` and other defaults when extending features, exposing overrides through `Config` utilities or documented environment variables (`GPLAY_TIMEOUT`, `GPLAY_RATE_LIMIT`).
+- Keep secrets and proxies out of the repository; document required environment variables in examples instead.

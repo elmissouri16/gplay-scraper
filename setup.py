@@ -3,8 +3,11 @@ from setuptools import setup, find_packages
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-with open("requirements.txt", "r", encoding="utf-8") as fh:
-    requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
+requirements = [
+    "beautifulsoup4>=4.9.0",
+    "curl-cffi>=0.5.0",
+    "pytest>=6.0.0",
+]
 
 setup(
     name="gplay-scraper",

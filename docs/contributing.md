@@ -7,14 +7,13 @@ Thank you for investing time in GPlay Scraper! The canonical contributor guide l
 ```bash
 git clone https://github.com/yourusername/gplay-scraper.git
 cd gplay-scraper
-pip install -e .
-pip install -r requirements.txt  # optional tooling
+uv sync  # creates .venv and installs dependencies
 ```
 
 Run the test suite before opening a pull request:
 
 ```bash
-python -m pytest tests -v
+uv run python -m pytest tests -v
 ```
 
 ## Coding Guidelines
@@ -32,5 +31,5 @@ python -m pytest tests -v
 
 1. Create a feature branch.
 2. Make changes and add or update tests.
-3. Run `python -m pytest tests -v`.
+3. Run `uv run python -m pytest tests -v`.
 4. Open a pull request that describes motivation, key changes, and verification steps.

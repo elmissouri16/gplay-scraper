@@ -1,6 +1,0 @@
-# Core dependencies
-beautifulsoup4>=4.9.0
-curl-cffi>=0.5.0
-
-# Development dependencies
-pytest>=6.0.0

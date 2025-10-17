@@ -26,6 +26,7 @@ scraper = GPlayScraper(http_client="curl_cffi")  # explicit but optional
 
 ```bash
 pip install gplay-scraper
+# or: uv pip install gplay-scraper
 ```
 
 ## Troubleshooting
