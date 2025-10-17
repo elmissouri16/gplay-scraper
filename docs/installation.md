@@ -54,6 +54,7 @@ scraper.app_print_all("com.whatsapp")  # alternate smoke test
   ```
 
 - **HTTP client** – GPlay Scraper standardises on `curl_cffi`. Initialising `GPlayScraper()` uses this backend automatically and the client cannot be overridden.
+- **Proxy format** – Pass a single proxy string (applies to HTTP/HTTPS) or a mapping such as `{"http": "http://proxy", "https": "http://secure-proxy"}`; call `set_proxies(None)` to clear.
 
 - **Common parameters** – All methods accept `lang`, `country`, and `count`.
 

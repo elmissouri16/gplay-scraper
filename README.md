@@ -117,6 +117,14 @@ scraper = GPlayScraper()
 # Route traffic through a proxy (string applies to both http/https)
 scraper_with_proxy = GPlayScraper(proxies="http://127.0.0.1:8080")
 
+# Or provide a mapping for different schemes
+scraper_with_split_proxy = GPlayScraper(
+    proxies={
+        "http": "http://corp-proxy.local:8080",
+        "https": "http://secure-proxy.local:8443",
+    }
+)
+
 # Update proxy configuration at runtime
 scraper_with_proxy.set_proxies(None)  # Disable proxy when no longer needed
 
@@ -150,6 +158,10 @@ scraper.similar_print_all(app_id, count=30, lang="en", country="us")
 # Get search suggestions
 scraper.suggest_print_all("fitness", count=5, lang="en", country="us")
 ```
+
+Proxy configuration accepts either a single URL string (applied to both HTTP and
+HTTPS traffic) or a dictionary mapping schemes to individual proxy URLs as shown
+above.
 
 ## 🎯 7 Method Types
 

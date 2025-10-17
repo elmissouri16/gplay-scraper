@@ -37,6 +37,26 @@ score: 4.3
 free: True
 ```
 
+## Configure Proxies
+
+```python
+from gplay_scraper import GPlayScraper
+
+# Apply the same proxy to HTTP and HTTPS requests
+scraper = GPlayScraper(proxies="http://127.0.0.1:8080")
+
+# Provide scheme-specific proxies when needed
+scraper = GPlayScraper(
+    proxies={
+        "http": "http://proxy.local:3128",
+        "https": "http://secure-proxy.local:4443",
+    }
+)
+
+# Disable or swap proxies later in the session
+scraper.set_proxies(None)
+```
+
 ## Competitive Analysis
 
 ```python

@@ -15,6 +15,13 @@ from gplay_scraper import GPlayScraper
 
 # curl_cffi is configured automatically; no override parameter is required
 scraper = GPlayScraper()
+
+# Optional: configure proxies
+scraper_with_proxy = GPlayScraper(proxies="http://127.0.0.1:8080")
+scraper_with_proxy.set_proxies({
+    "http": "http://proxy.local:3128",
+    "https": "http://secure-proxy.local:4443",
+})
 ```
 
 ## Installation

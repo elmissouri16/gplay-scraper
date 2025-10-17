@@ -23,7 +23,10 @@ class GPlayScraper:
     - Suggest Methods: Get search suggestions
     
     Args:
-        proxies: Optional proxy configuration applied to all HTTP calls
+        proxies: Optional proxy configuration applied to all HTTP calls.
+            Accepts either a string (`"http://host:port"`) which is applied to
+            both HTTP and HTTPS requests, or a mapping such as
+            `{"http": "http://proxy", "https": "http://proxy2"}`.
     """
     
     def __init__(self, proxies: ProxyConfig = None):
@@ -42,7 +45,12 @@ class GPlayScraper:
         self.suggest_methods = SuggestMethods(proxies=proxies)
 
     def set_proxies(self, proxies: ProxyConfig) -> None:
-        """Update proxy configuration for all method groups at runtime."""
+        """Update proxy configuration for all method groups at runtime.
+
+        Args:
+            proxies: Either a proxy URL string or a mapping of scheme to proxy URL.
+                Passing ``None`` clears any existing proxy configuration.
+        """
         self.app_methods.set_proxies(proxies)
         self.search_methods.set_proxies(proxies)
         self.reviews_methods.set_proxies(proxies)

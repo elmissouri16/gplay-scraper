@@ -36,6 +36,26 @@ scraper.scraper.rate_limit_delay = 2.0  # custom delay
 scraper.scraper.rate_limit_delay = 0    # disable (not recommended)
 ```
 
+### Proxies
+
+```python
+from gplay_scraper import GPlayScraper
+
+# Single proxy string applies to both HTTP and HTTPS
+scraper = GPlayScraper(proxies="http://127.0.0.1:8080")
+
+# Provide a mapping to control schemes independently
+scraper = GPlayScraper(
+    proxies={
+        "http": "socks5://127.0.0.1:9050",
+        "https": "http://proxy.example.com:8443",
+    }
+)
+
+# Update or clear proxies later
+scraper.set_proxies(None)  # removes active proxies
+```
+
 ### User Agent
 
 ```python
