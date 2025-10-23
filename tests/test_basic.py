@@ -29,48 +29,35 @@ class TestBasicFunctionality(unittest.TestCase):
         self.assertTrue(hasattr(scraper, 'app_analyze'))
         self.assertTrue(hasattr(scraper, 'app_get_field'))
         self.assertTrue(hasattr(scraper, 'app_get_fields'))
-        self.assertTrue(hasattr(scraper, 'app_print_field'))
-        self.assertTrue(hasattr(scraper, 'app_print_fields'))
         
         # Search methods
         self.assertTrue(hasattr(scraper, 'search_analyze'))
         self.assertTrue(hasattr(scraper, 'search_get_field'))
         self.assertTrue(hasattr(scraper, 'search_get_fields'))
-        self.assertTrue(hasattr(scraper, 'search_print_field'))
-        self.assertTrue(hasattr(scraper, 'search_print_fields'))
         
         # Reviews methods
         self.assertTrue(hasattr(scraper, 'reviews_analyze'))
         self.assertTrue(hasattr(scraper, 'reviews_get_field'))
         self.assertTrue(hasattr(scraper, 'reviews_get_fields'))
-        self.assertTrue(hasattr(scraper, 'reviews_print_field'))
-        self.assertTrue(hasattr(scraper, 'reviews_print_fields'))
         
         # Developer methods
         self.assertTrue(hasattr(scraper, 'developer_analyze'))
         self.assertTrue(hasattr(scraper, 'developer_get_field'))
         self.assertTrue(hasattr(scraper, 'developer_get_fields'))
-        self.assertTrue(hasattr(scraper, 'developer_print_field'))
-        self.assertTrue(hasattr(scraper, 'developer_print_fields'))
         
         # List methods
         self.assertTrue(hasattr(scraper, 'list_analyze'))
         self.assertTrue(hasattr(scraper, 'list_get_field'))
         self.assertTrue(hasattr(scraper, 'list_get_fields'))
-        self.assertTrue(hasattr(scraper, 'list_print_field'))
-        self.assertTrue(hasattr(scraper, 'list_print_fields'))
         
         # Similar methods
         self.assertTrue(hasattr(scraper, 'similar_analyze'))
         self.assertTrue(hasattr(scraper, 'similar_get_field'))
         self.assertTrue(hasattr(scraper, 'similar_get_fields'))
-        self.assertTrue(hasattr(scraper, 'similar_print_field'))
-        self.assertTrue(hasattr(scraper, 'similar_print_fields'))
         
         # Suggest methods
         self.assertTrue(hasattr(scraper, 'suggest_analyze'))
         self.assertTrue(hasattr(scraper, 'suggest_nested'))
-        self.assertTrue(hasattr(scraper, 'suggest_print_nested'))
 
 
 if __name__ == '__main__':

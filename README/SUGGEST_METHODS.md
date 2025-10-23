@@ -50,12 +50,14 @@ nested = scraper.suggest_nested("video", count=3)
 # }
 ```
 
-### `suggest_print_nested(term, count=5, lang='en', country='us')`
-Prints nested suggestions as formatted JSON.
+### Formatting Tips
+
+Use standard Python loops to inspect nested suggestions:
 
 ```python
-scraper.suggest_print_nested("video", count=3)
-# Output: Full JSON object with nested suggestions
+nested = scraper.suggest_nested("video", count=3)
+for parent, children in nested.items():
+    print(f"{parent}: {', '.join(children[:3])}")
 ```
 
 ---
@@ -242,8 +244,7 @@ for i, suggestion in enumerate(suggestions[:10], 1):
 
 - **`suggest_analyze()`** - Get simple list of suggestions for autocomplete or keyword research
 - **`suggest_nested()`** - Deep keyword mining with two levels of suggestions
-- **`suggest_print_nested()`** - Quick debugging/console output of nested suggestions
-- **`suggest_print_nested()`** - Quick debugging/console output of nested suggestions
+- **Standard Python formatting** - Use the returned lists/dicts for custom presentation
 
 ---
 

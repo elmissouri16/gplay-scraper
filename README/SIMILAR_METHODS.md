@@ -57,25 +57,14 @@ apps = scraper.similar_get_fields("com.whatsapp", ["title", "score", "free"])
 # Returns: [{'title': 'App 1', 'score': 4.5, 'free': True}, ...]
 ```
 
-### `similar_print_field(app_id, field, count=100, lang='en', country='us')`
-Prints a specific field from all similar apps.
+### Formatting Tips
+
+Use standard Python loops to present similar app data:
 
 ```python
-scraper.similar_print_field("com.whatsapp", "title", count=10)
-# Output:
-# 1. title: App 1
-# 2. title: App 2
-# 3. title: App 3
-```
-
-### `similar_print_fields(app_id, fields, count=100, lang='en', country='us')`
-Prints multiple fields from all similar apps.
-
-```python
-scraper.similar_print_fields("com.whatsapp", ["title", "score"], count=10)
-# Output:
-# 1. title: App 1, score: 4.5
-# 2. title: App 2, score: 4.2
+apps = scraper.similar_get_fields("com.whatsapp", ["title", "score", "developer"], count=10)
+for idx, app in enumerate(apps, 1):
+    print(f"{idx}. {app['title']} — {app['score']}★ by {app['developer']}")
 ```
 
 ## Available Fields
@@ -248,9 +237,7 @@ if paid_similar:
 - **`similar_analyze()`** - Need complete data for all similar apps
 - **`similar_get_field()`** - Need just one field from all similar apps
 - **`similar_get_fields()`** - Need specific fields from all similar apps (more efficient)
-- **`similar_print_field()`** - Quick debugging/console output
-- **`similar_print_fields()`** - Quick debugging of multiple fields
-- **`similar_print_fields()`** - Explore available data structure
+- **Standard Python formatting** - Use the returned data for custom reporting or display
 
 ---
 

@@ -28,7 +28,8 @@ top_apps = scraper.search_get_fields("productivity apps", ["title", "developer"]
 print(top_apps[:3])
 
 # Reviews methods
-scraper.reviews_print_fields("com.whatsapp", ["userName", "score"], count=10, sort="NEWEST")
+reviews = scraper.reviews_get_fields("com.whatsapp", ["userName", "score"], count=10, sort="NEWEST")
+print(reviews[:3])
 ```
 
 ## Documentation Map

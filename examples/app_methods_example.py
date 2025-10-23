@@ -1,6 +1,6 @@
 """
 App Methods Example
-Demonstrates five app methods for extracting app details
+Demonstrates the core app helpers for extracting and formatting app details.
 
 Parameters:
 - app_id: App package name
@@ -34,10 +34,13 @@ print("\n3. app_get_fields(app_id, fields, lang='en', country='us')")
 fields = scraper.app_get_fields(app_id, ["title", "score", "installs"], lang=lang, country=country)
 print(f"   {fields}")
 
-# 4. app_print_field() - Print single field
-print("\n4. app_print_field(app_id, field, lang='en', country='us')")
-scraper.app_print_field(app_id, "developer", lang=lang, country=country)
+# 4. Format a single field manually
+print("\n4. Display developer name using app_get_field")
+developer = scraper.app_get_field(app_id, "developer", lang=lang, country=country)
+print(f"   Developer: {developer}")
 
-# 5. app_print_fields() - Print multiple fields
-print("\n5. app_print_fields(app_id, fields, lang='en', country='us')")
-scraper.app_print_fields(app_id, ["title", "score", "free"], lang=lang, country=country)
+# 5. Format multiple fields manually
+print("\n5. Display selected fields using app_get_fields")
+selected = scraper.app_get_fields(app_id, ["title", "score", "free"], lang=lang, country=country)
+for key, value in selected.items():
+    print(f"   {key}: {value}")

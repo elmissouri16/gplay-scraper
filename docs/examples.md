@@ -219,8 +219,6 @@ media = scraper.app_get_fields(
 print(f"Icon: {media['icon']}")
 print(f"Screenshots: {len(media['screenshots'])} images")
 print(f"Header: {media['headerImage']}")
-
-scraper.app_print_field(app_id, "icon", assets="LARGE")
 ```
 
 ## Multi-Language Support

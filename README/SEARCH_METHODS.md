@@ -57,25 +57,14 @@ apps = scraper.search_get_fields("photo editor", ["title", "score", "free"])
 # Returns: [{'title': 'App 1', 'score': 4.5, 'free': True}, ...]
 ```
 
-### `search_print_field(query, field, count=100, lang='en', country='us')`
-Prints a specific field from all search results.
+### Formatting Tips
+
+Use standard Python loops and string formatting to present search results:
 
 ```python
-scraper.search_print_field("social media", "title", count=10)
-# Output:
-# 0. title: App 1
-# 1. title: App 2
-# 2. title: App 3
-```
-
-### `search_print_fields(query, fields, count=100, lang='en', country='us')`
-Prints multiple fields from all search results.
-
-```python
-scraper.search_print_fields("social media", ["title", "score"], count=10)
-# Output:
-# 0. title: App 1, score: 4.5
-# 1. title: App 2, score: 4.2
+apps = scraper.search_get_fields("social media", ["title", "score", "developer"], count=10)
+for idx, app in enumerate(apps, 1):
+    print(f"{idx}. {app['title']} — {app['score']}★ by {app['developer']}")
 ```
 
 ## Available Fields
@@ -247,9 +236,7 @@ if paid_apps:
 - **`search_analyze()`** - Need complete data for all search results
 - **`search_get_field()`** - Need just one field from all results
 - **`search_get_fields()`** - Need specific fields from all results (more efficient)
-- **`search_print_field()`** - Quick debugging/console output
-- **`search_print_fields()`** - Quick debugging of multiple fields
-- **`search_print_fields()`** - Explore available data structure
+- **Standard Python formatting** - Use the returned lists/dicts for custom display or post-processing
 
 ---
 

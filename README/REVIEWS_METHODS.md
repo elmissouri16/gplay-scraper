@@ -58,25 +58,15 @@ reviews = scraper.reviews_get_fields("com.whatsapp", ["userName", "score", "cont
 # Returns: [{'userName': 'John', 'score': 5, 'content': 'Great app!'}, ...]
 ```
 
-### `reviews_print_field(app_id, field, count=100, lang='en', country='us', sort='NEWEST')`
-Prints a specific field from all reviews.
+### Formatting Tips
+
+Use standard Python loops to present review data:
 
 ```python
-scraper.reviews_print_field("com.whatsapp", "content", count=20)
-# Output:
-# 1. content: Great app!
-# 2. content: Love it
-# 3. content: Needs improvement
-```
-
-### `reviews_print_fields(app_id, fields, count=100, lang='en', country='us', sort='NEWEST')`
-Prints multiple fields from all reviews.
-
-```python
-scraper.reviews_print_fields("com.whatsapp", ["userName", "score"], count=20)
-# Output:
-# userName: John, score: 5
-# userName: Jane, score: 4
+reviews = scraper.reviews_get_fields("com.whatsapp", ["userName", "score", "content"], count=10)
+for idx, review in enumerate(reviews, 1):
+    print(f"{idx}. {review['userName']} — {review['score']}★")
+    print(f"   {review['content']}")
 ```
 
 ## Available Fields
@@ -283,9 +273,7 @@ for word, count in top_keywords:
 - **`reviews_analyze()`** - Need complete review data for analysis
 - **`reviews_get_field()`** - Need just one field (e.g., all scores)
 - **`reviews_get_fields()`** - Need specific fields (more efficient)
-- **`reviews_print_field()`** - Quick debugging/console output
-- **`reviews_print_fields()`** - Quick debugging of multiple fields
-- **`reviews_print_fields()`** - Explore available data structure
+- **Standard Python formatting** - Use lists/dicts returned by the helpers for custom reporting
 
 ---
 

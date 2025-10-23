@@ -172,38 +172,31 @@ except Exception as exc:
 - **App Methods**
   - `app_analyze()` – full payload
   - `app_get_field()` – single field
-  - `app_get_fields()` – subset of fields
-  - `app_print_*()` – quick console inspection
+  - `app_get_fields()` – subset of fields (format the result with standard Python utilities)
 
 - **Search Methods**
   - `search_analyze()` – full search data
-  - `search_get_field()` / `search_get_fields()` – targeted data
-  - `search_print_fields()` – inspect structure
+  - `search_get_field()` / `search_get_fields()` – targeted data (loop over returned values to display them)
 
 - **Reviews Methods**
   - `reviews_analyze()` – detailed review data
-  - `reviews_get_field()` / `reviews_get_fields()` – specific fields
-  - `reviews_print_fields()` – console snapshot
+  - `reviews_get_field()` / `reviews_get_fields()` – specific fields (iterate and format as needed)
 
 - **Developer Methods**
   - `developer_analyze()` – full portfolio
-  - `developer_get_field()` / `developer_get_fields()` – targeted fields
-  - `developer_print_fields()` – inspect structure
+  - `developer_get_field()` / `developer_get_fields()` – targeted fields (format using Python printing or JSON tooling)
 
 - **List Methods**
   - `list_analyze()` – complete chart data
-  - `list_get_field()` / `list_get_fields()` – specific fields
-  - `list_print_fields()` – inspect structure
+  - `list_get_field()` / `list_get_fields()` – specific fields (format the list for reporting)
 
 - **Similar Methods**
   - `similar_analyze()` – related apps payload
-  - `similar_get_field()` / `similar_get_fields()` – specific values
-  - `similar_print_fields()` – inspect structure
+  - `similar_get_field()` / `similar_get_fields()` – specific values (format for comparison dashboards)
 
 - **Suggest Methods**
   - `suggest_analyze()` – suggestion list
-  - `suggest_nested()` – recursive suggestions
-  - `suggest_print_*()` – console helpers
+  - `suggest_nested()` – recursive suggestions (pretty-print nested dicts manually)
 
 ## Best Practices
 

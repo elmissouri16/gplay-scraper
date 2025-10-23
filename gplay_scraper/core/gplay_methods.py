@@ -5,7 +5,6 @@ data, retrieve specific fields, and print selected values; suggest methods also
 offer utilities for nested suggestions.
 """
 
-import json
 from typing import Any, List, Dict
 import logging
 from .gplay_scraper import AppScraper, SearchScraper, ReviewsScraper, DeveloperScraper, SimilarScraper, ListScraper, SuggestScraper
@@ -85,39 +84,6 @@ class AppMethods:
         data = self.app_analyze(app_id, lang, country, assets)
         return {field: data.get(field) for field in fields}
 
-    def app_print_field(self, app_id: str, field: str, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY, assets: str = None) -> None:
-        """Print single field value to console.
-        
-        Args:
-            app_id: Google Play app ID
-            field: Field name to print
-            lang: Language code
-            country: Country code
-            assets: Asset size (SMALL, MEDIUM, LARGE, ORIGINAL)
-        """
-        value = self.app_get_field(app_id, field, lang, country, assets)
-        try:
-            print(f"{field}: {value}")
-        except UnicodeEncodeError:
-            print(f"{field}: {repr(value)}")
-
-    def app_print_fields(self, app_id: str, fields: List[str], lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY, assets: str = None) -> None:
-        """Print multiple field values to console.
-        
-        Args:
-            app_id: Google Play app ID
-            fields: List of field names to print
-            lang: Language code
-            country: Country code
-            assets: Asset size (SMALL, MEDIUM, LARGE, ORIGINAL)
-        """
-        data = self.app_get_fields(app_id, fields, lang, country, assets)
-        for field, value in data.items():
-            try:
-                print(f"{field}: {value}")
-            except UnicodeEncodeError:
-                print(f"{field}: {repr(value)}")
-
 class SearchMethods:
     """Methods for searching apps by keyword."""
 
@@ -185,42 +151,6 @@ class SearchMethods:
         """
         results = self.search_analyze(query, count, lang, country)
         return [{field: app.get(field) for field in fields} for app in results]
-
-    def search_print_field(self, query: str, field: str, count: int = Config.DEFAULT_SEARCH_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print single field from all search results.
-        
-        Args:
-            query: Search query string
-            field: Field name to print
-            count: Number of results
-            lang: Language code
-            country: Country code
-        """
-        values = self.search_get_field(query, field, count, lang, country)
-        for i, value in enumerate(values):
-            try:
-                print(f"{i}. {field}: {value}")
-            except UnicodeEncodeError:
-                print(f"{i}. {field}: {repr(value)}")
-
-    def search_print_fields(self, query: str, fields: List[str], count: int = Config.DEFAULT_SEARCH_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print multiple fields from all search results.
-        
-        Args:
-            query: Search query string
-            fields: List of field names to print
-            count: Number of results
-            lang: Language code
-            country: Country code
-        """
-        data = self.search_get_fields(query, fields, count, lang, country)
-        for i, app_data in enumerate(data):
-            try:
-                field_str = ', '.join(f'{field}: {value}' for field, value in app_data.items())
-                print(f"{i}. {field_str}")
-            except UnicodeEncodeError:
-                field_str = ', '.join(f'{field}: {repr(value)}' for field, value in app_data.items())
-                print(f"{i}. {field_str}")
 
 class ReviewsMethods:
     """Methods for extracting user reviews and ratings."""
@@ -302,45 +232,6 @@ class ReviewsMethods:
         reviews_data = self.reviews_analyze(app_id, count, lang, country, sort)
         return [{field: review.get(field) for field in fields} for review in reviews_data]
 
-    def reviews_print_field(self, app_id: str, field: str, count: int = Config.DEFAULT_REVIEWS_COUNT,
-                           lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY, sort: str = Config.DEFAULT_REVIEWS_SORT) -> None:
-        """Print single field from all reviews.
-        
-        Args:
-            app_id: Google Play app ID
-            field: Field name to print
-            count: Number of reviews
-            lang: Language code
-            country: Country code
-            sort: Sort order
-        """
-        field_values = self.reviews_get_field(app_id, field, count, lang, country, sort)
-        for i, value in enumerate(field_values):
-            try:
-                print(f"{i+1}. {field}: {value}")
-            except UnicodeEncodeError:
-                print(f"{i+1}. {field}: {repr(value)}")
-
-    def reviews_print_fields(self, app_id: str, fields: List[str], count: int = Config.DEFAULT_REVIEWS_COUNT,
-                            lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY, sort: str = Config.DEFAULT_REVIEWS_SORT) -> None:
-        """Print multiple fields from all reviews.
-        
-        Args:
-            app_id: Google Play app ID
-            fields: List of field names to print
-            count: Number of reviews
-            lang: Language code
-            country: Country code
-            sort: Sort order
-        """
-        reviews_data = self.reviews_get_fields(app_id, fields, count, lang, country, sort)
-        for i, review in enumerate(reviews_data):
-            for field, value in review.items():
-                try:
-                    print(f"{field}: {value}")
-                except UnicodeEncodeError:
-                    print(f"{field}: {repr(value)}")
-
 class DeveloperMethods:
     """Methods for getting all apps from a developer."""
 
@@ -406,42 +297,6 @@ class DeveloperMethods:
         """
         results = self.developer_analyze(dev_id, count, lang, country)
         return [{field: app.get(field) for field in fields} for app in results]
-
-    def developer_print_field(self, dev_id: str, field: str, count: int = Config.DEFAULT_DEVELOPER_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print single field from all developer apps.
-        
-        Args:
-            dev_id: Developer ID
-            field: Field name to print
-            count: Number of apps
-            lang: Language code
-            country: Country code
-        """
-        values = self.developer_get_field(dev_id, field, count, lang, country)
-        for i, value in enumerate(values):
-            try:
-                print(f"{i+1}. {field}: {value}")
-            except UnicodeEncodeError:
-                print(f"{i+1}. {field}: {repr(value)}")
-
-    def developer_print_fields(self, dev_id: str, fields: List[str], count: int = Config.DEFAULT_DEVELOPER_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print multiple fields from all developer apps.
-        
-        Args:
-            dev_id: Developer ID
-            fields: List of field names to print
-            count: Number of apps
-            lang: Language code
-            country: Country code
-        """
-        data = self.developer_get_fields(dev_id, fields, count, lang, country)
-        for i, app_data in enumerate(data):
-            try:
-                field_str = ', '.join(f'{field}: {value}' for field, value in app_data.items())
-                print(f"{i+1}. {field_str}")
-            except UnicodeEncodeError:
-                field_str = ', '.join(f'{field}: {repr(value)}' for field, value in app_data.items())
-                print(f"{i+1}. {field_str}")
 
 class SimilarMethods:
     """Methods for finding similar/competitor apps."""
@@ -509,42 +364,6 @@ class SimilarMethods:
         results = self.similar_analyze(app_id, count, lang, country)
         return [{field: app.get(field) for field in fields} for app in results]
 
-    def similar_print_field(self, app_id: str, field: str, count: int = Config.DEFAULT_SIMILAR_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print single field from all similar apps.
-        
-        Args:
-            app_id: Google Play app ID
-            field: Field name to print
-            count: Number of similar apps
-            lang: Language code
-            country: Country code
-        """
-        values = self.similar_get_field(app_id, field, count, lang, country)
-        for i, value in enumerate(values):
-            try:
-                print(f"{i+1}. {field}: {value}")
-            except UnicodeEncodeError:
-                print(f"{i+1}. {field}: {repr(value)}")
-
-    def similar_print_fields(self, app_id: str, fields: List[str], count: int = Config.DEFAULT_SIMILAR_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print multiple fields from all similar apps.
-        
-        Args:
-            app_id: Google Play app ID
-            fields: List of field names to print
-            count: Number of similar apps
-            lang: Language code
-            country: Country code
-        """
-        data = self.similar_get_fields(app_id, fields, count, lang, country)
-        for i, app_data in enumerate(data):
-            try:
-                field_str = ', '.join(f'{field}: {value}' for field, value in app_data.items())
-                print(f"{i+1}. {field_str}")
-            except UnicodeEncodeError:
-                field_str = ', '.join(f'{field}: {repr(value)}' for field, value in app_data.items())
-                print(f"{i+1}. {field_str}")
-
 class ListMethods:
     """Methods for getting top charts (free, paid, grossing)."""
 
@@ -608,44 +427,6 @@ class ListMethods:
         results = self.list_analyze(collection, category, count, lang, country)
         return [{field: app.get(field) for field in fields} for app in results]
 
-    def list_print_field(self, collection: str, field: str, category: str = Config.DEFAULT_LIST_CATEGORY, count: int = Config.DEFAULT_LIST_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print single field from all list apps.
-        
-        Args:
-            collection: Collection type
-            field: Field name to print
-            category: App category
-            count: Number of apps
-            lang: Language code
-            country: Country code
-        """
-        values = self.list_get_field(collection, field, category, count, lang, country)
-        for i, value in enumerate(values):
-            try:
-                print(f"{i+1}. {field}: {value}")
-            except UnicodeEncodeError:
-                print(f"{i+1}. {field}: {repr(value)}")
-
-    def list_print_fields(self, collection: str, fields: List[str], category: str = Config.DEFAULT_LIST_CATEGORY, count: int = Config.DEFAULT_LIST_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print multiple fields from all list apps.
-        
-        Args:
-            collection: Collection type
-            fields: List of field names to print
-            category: App category
-            count: Number of apps
-            lang: Language code
-            country: Country code
-        """
-        data = self.list_get_fields(collection, fields, category, count, lang, country)
-        for i, app_data in enumerate(data):
-            try:
-                field_str = ', '.join(f'{field}: {value}' for field, value in app_data.items())
-                print(f"{i+1}. {field_str}")
-            except UnicodeEncodeError:
-                field_str = ', '.join(f'{field}: {repr(value)}' for field, value in app_data.items())
-                print(f"{i+1}. {field_str}")
-
 class SuggestMethods:
     """Methods for getting search suggestions and autocomplete."""
 
@@ -704,18 +485,3 @@ class SuggestMethods:
             second_level = self.suggest_analyze(suggestion, count, lang, country)
             results[suggestion] = second_level
         return results
-
-    def suggest_print_nested(self, term: str, count: int = Config.DEFAULT_SUGGEST_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print nested suggestions as JSON.
-        
-        Args:
-            term: Search term
-            count: Number of suggestions per level
-            lang: Language code
-            country: Country code
-        """
-        nested = self.suggest_nested(term, count, lang, country)
-        try:
-            print(json.dumps(nested, indent=2, ensure_ascii=False))
-        except UnicodeEncodeError:
-            print(json.dumps(nested, indent=2, ensure_ascii=True))

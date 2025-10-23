@@ -20,10 +20,8 @@ GPlay Scraper exposes seven method families. Most families offer the same five h
 - `analyze()` – Fetch all data as a dictionary or list.
 - `get_field()` – Fetch a single field.
 - `get_fields()` – Fetch a subset of fields efficiently.
-- `print_field()` – Pretty-print one field to the console.
-- `print_fields()` – Pretty-print multiple fields.
 
-Suggest methods additionally provide `nested()` and `print_nested()` helpers for exploring suggestions-of-suggestions.
+Suggest methods additionally provide `nested()` for exploring suggestions-of-suggestions.
 
 ### Method Families
 
@@ -46,7 +44,8 @@ All method families share the following arguments:
 ```python
 scraper.app_analyze("com.whatsapp", lang="es", country="es")
 scraper.app_analyze("com.whatsapp", lang="fr", country="fr")
-scraper.search_print_fields("productivity", ["title", "developer"], count=25, lang="en", country="us")
+results = scraper.search_get_fields("productivity", ["title", "developer"], count=25, lang="en", country="us")
+print(results[:3])
 ```
 
 ## Method Recipes
@@ -63,7 +62,7 @@ print(f"Rating: {data['score']}")
 title = scraper.app_get_field(app_id, "title", lang="en", country="us")
 
 fields = scraper.app_get_fields(app_id, ["title", "score", "installs"])
-scraper.app_print_fields(app_id, ["title", "score", "free"])
+print(f"{fields['title']} — {fields['score']}★ — {fields['installs']} installs")
 ```
 
 ### 2. Search Methods
@@ -77,7 +76,8 @@ for app in results:
 
 titles = scraper.search_get_field(query, "title", count=10)
 data = scraper.search_get_fields(query, ["title", "score"], count=10)
-scraper.search_print_fields(query, ["title", "developer"], count=10)
+for idx, app in enumerate(data[:5], 1):
+    print(f"{idx}. {app['title']} — {app.get('score', 'N/A')}★")
 ```
 
 ### 3. Reviews Methods
@@ -90,7 +90,8 @@ for review in reviews:
     print(f"{review['userName']}: {review['score']} stars")
 
 scores = scraper.reviews_get_field(app_id, "score", count=100, sort="NEWEST")
-scraper.reviews_print_fields(app_id, ["userName", "score"], count=50, sort="NEWEST")
+recent = scraper.reviews_get_fields(app_id, ["userName", "score"], count=50, sort="NEWEST")
+print(f"First reviewer: {recent[0]['userName']} ({recent[0]['score']}★)")
 ```
 
 ### 4. Developer Methods
@@ -103,7 +104,8 @@ for app in apps:
     print(f"{app['title']} - {app['score']} stars")
 
 titles = scraper.developer_get_field(dev_id, "title", count=20)
-scraper.developer_print_fields(dev_id, ["title", "score"], count=20)
+summaries = scraper.developer_get_fields(dev_id, ["title", "score"], count=20)
+print(summaries[:3])
 ```
 
 ### 5. List Methods

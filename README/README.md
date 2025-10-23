@@ -104,37 +104,44 @@ from gplay_scraper import GPlayScraper
 scraper = GPlayScraper()
 
 # App Methods
-scraper.app_print_fields("com.whatsapp", ["title", "score", "installs"])
+app_info = scraper.app_get_fields("com.whatsapp", ["title", "score", "installs"])
+print(f"{app_info['title']} — {app_info['score']}★ — {app_info['installs']} installs")
 
 # Search Methods
-scraper.search_print_fields("fitness tracker", ["title", "developer"], count=20)
+search_results = scraper.search_get_fields("fitness tracker", ["title", "developer"], count=20)
+for app in search_results[:3]:
+    print(f"{app['title']} by {app['developer']}")
 
 # Reviews Methods
-scraper.reviews_print_fields("com.whatsapp", ["userName", "score"], count=100, sort="NEWEST")
+reviews = scraper.reviews_get_fields("com.whatsapp", ["userName", "score"], count=100, sort="NEWEST")
+print(f"Latest reviewer: {reviews[0]['userName']} rated {reviews[0]['score']}★")
 
 # Developer Methods
-scraper.developer_print_fields("5700313618786177705", ["title", "score"], count=50)
+portfolio = scraper.developer_get_fields("5700313618786177705", ["title", "score"], count=50)
+print(f"Developer apps tracked: {len(portfolio)}")
 
 # List Methods
-scraper.list_print_fields("TOP_FREE", "GAME", ["title", "score"], count=50)
+top_free = scraper.list_get_fields("TOP_FREE", "GAME", ["title", "score"], count=50)
+print(f"Top game: {top_free[0]['title']} ({top_free[0]['score']}★)")
 
 # Similar Methods
-scraper.similar_print_fields("com.whatsapp", ["title", "score"], count=30)
+competitors = scraper.similar_get_fields("com.whatsapp", ["title", "score"], count=30)
+print(f"Similar app example: {competitors[0]['title']} ({competitors[0]['score']}★)")
 
 # Suggest Methods
-scraper.suggest_print_nested("photo editor", count=10)
+suggestions = scraper.suggest_nested("photo editor", count=10)
+print(f"Related suggestions: {list(suggestions.keys())[:3]}")
 ```
 
 ## 📖 Method Pattern
 
-Each method type follows the same pattern with 5 functions:
+Each method type exposes three data-retrieval helpers:
 
 - **`analyze()`** - Get all data as dictionary/list
 - **`get_field()`** - Get single field value
 - **`get_fields()`** - Get multiple fields as dictionary
-- **`print_field()`** - Print single field to console
-- **`print_fields()`** - Print multiple fields to console
-Suggest methods additionally expose `nested()` / `print_nested()`.
+
+Suggest methods additionally expose `nested()` for secondary suggestions.
 
 ## 🌍 Multi-Language & Multi-Region
 

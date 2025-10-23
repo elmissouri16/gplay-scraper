@@ -31,6 +31,9 @@ print(f"   Nested suggestions (first 2):")
 for i, (key, values) in enumerate(list(nested.items())[:2]):
     print(f"   {key}: {values}")
 
-# 3. suggest_print_nested() - Print nested suggestions as JSON
-print("\n3. suggest_print_nested(term, count=5, lang='en', country='us')")
-scraper.suggest_print_nested(term, count=count, lang=lang, country=country)
+# 3. Display nested suggestions with manual formatting
+print("\n3. Display nested suggestions with manual formatting")
+for parent, children in list(nested.items())[:3]:
+    print(f"   {parent}:")
+    for suggestion in children[:3]:
+        print(f"      - {suggestion}")

@@ -1,6 +1,6 @@
 """
 Reviews Methods Example
-Demonstrates five reviews methods for extracting user reviews
+Demonstrates the core reviews helpers for extracting and formatting user feedback.
 
 Parameters:
 - app_id: App package name
@@ -37,10 +37,12 @@ print("\n3. reviews_get_fields(app_id, fields, count=100, lang='en', country='us
 review_data = scraper.reviews_get_fields(app_id, ["userName", "score"], count=10, lang=lang, country=country, sort=sort)
 print(f"   First 2 reviews: {review_data[:2]}")
 
-# 4. reviews_print_field() - Print single field from all reviews
-print("\n4. reviews_print_field(app_id, field, count=100, lang='en', country='us', sort='NEWEST')")
-scraper.reviews_print_field(app_id, "score", count=5, lang=lang, country=country, sort=sort)
+# 4. Display first five review scores
+print("\n4. Display first five review scores using reviews_get_field")
+for idx, score in enumerate(scores[:5], 1):
+    print(f"   {idx}. {score}")
 
-# 5. reviews_print_fields() - Print multiple fields from all reviews
-print("\n5. reviews_print_fields(app_id, fields, count=100, lang='en', country='us', sort='NEWEST')")
-scraper.reviews_print_fields(app_id, ["userName", "score"], count=5, lang=lang, country=country, sort=sort)
+# 5. Display first five reviewer names and scores
+print("\n5. Display first five reviewers with scores")
+for idx, review in enumerate(review_data[:5], 1):
+    print(f"   {idx}. {review.get('userName', 'Anonymous')} — {review.get('score', 'N/A')}★")

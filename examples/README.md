@@ -5,58 +5,52 @@ This folder contains example scripts demonstrating all methods for each of the 7
 ## Files
 
 ### 1. app_methods_example.py
-Demonstrates five app methods:
+Covers:
 - `app_analyze()` - Get all data as dictionary
 - `app_get_field()` - Get single field value
 - `app_get_fields()` - Get multiple fields
-- `app_print_field()` - Print single field to console
-- `app_print_fields()` - Print multiple fields to console
+- Manual formatting of selected fields using standard Python printing
 
 ### 2. search_methods_example.py
-Demonstrates five search methods:
+Covers:
 - `search_analyze()` - Get all search results
-- `search_get_field()` - Get single field from results
-- `search_get_fields()` - Get multiple fields from results
-- `search_print_field()` - Print single field from results
-- `search_print_fields()` - Print multiple fields from results
+- `search_get_field()` - Get one field across results
+- `search_get_fields()` - Get multiple fields across results
+- Custom display of titles and developers using the returned data
 
 ### 3. reviews_methods_example.py
-Demonstrates five reviews methods:
+Covers:
 - `reviews_analyze()` - Get all reviews
-- `reviews_get_field()` - Get single field from reviews
-- `reviews_get_fields()` - Get multiple fields from reviews
-- `reviews_print_field()` - Print single field from reviews
-- `reviews_print_fields()` - Print multiple fields from reviews
+- `reviews_get_field()` - Extract a single review field
+- `reviews_get_fields()` - Extract multiple review fields
+- Manual formatting of reviewer names and scores
 
 ### 4. developer_methods_example.py
-Demonstrates five developer methods:
+Covers:
 - `developer_analyze()` - Get all developer apps
-- `developer_get_field()` - Get single field from apps
-- `developer_get_fields()` - Get multiple fields from apps
-- `developer_print_field()` - Print single field from apps
-- `developer_print_fields()` - Print multiple fields from apps
+- `developer_get_field()` - Extract one field from each app
+- `developer_get_fields()` - Extract multiple fields from each app
+- Custom display of app titles and scores
 
 ### 5. list_methods_example.py
-Demonstrates five list methods:
+Covers:
 - `list_analyze()` - Get all top chart apps
-- `list_get_field()` - Get single field from apps
-- `list_get_fields()` - Get multiple fields from apps
-- `list_print_field()` - Print single field from apps
-- `list_print_fields()` - Print multiple fields from apps
+- `list_get_field()` - Extract one field from top charts
+- `list_get_fields()` - Extract multiple fields from top charts
+- Manual formatting of chart results
 
 ### 6. similar_methods_example.py
-Demonstrates five similar methods:
+Covers:
 - `similar_analyze()` - Get all similar apps
-- `similar_get_field()` - Get single field from apps
-- `similar_get_fields()` - Get multiple fields from apps
-- `similar_print_field()` - Print single field from apps
-- `similar_print_fields()` - Print multiple fields from apps
+- `similar_get_field()` - Extract one field from similar apps
+- `similar_get_fields()` - Extract multiple fields from similar apps
+- Manual formatting of similar app summaries
 
 ### 7. suggest_methods_example.py
-Demonstrates three suggest methods:
+Covers:
 - `suggest_analyze()` - Get search suggestions
 - `suggest_nested()` - Get nested suggestions
-- `suggest_print_nested()` - Print nested suggestions as JSON
+- Custom formatting of nested suggestions
 
 ## Running Examples
 

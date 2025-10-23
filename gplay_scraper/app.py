@@ -105,30 +105,6 @@ class GPlayScraper:
         """
         return self.app_methods.app_get_fields(app_id, fields, lang, country, assets)
 
-    def app_print_field(self, app_id: str, field: str, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY, assets: str = None) -> None:
-        """Print single field value to console.
-        
-        Args:
-            app_id: Google Play app ID
-            field: Field name to print
-            lang: Language code
-            country: Country code
-            assets: Asset size (SMALL, MEDIUM, LARGE, ORIGINAL)
-        """
-        return self.app_methods.app_print_field(app_id, field, lang, country, assets)
-
-    def app_print_fields(self, app_id: str, fields: List[str], lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY, assets: str = None) -> None:
-        """Print multiple field values to console.
-        
-        Args:
-            app_id: Google Play app ID
-            fields: List of field names to print
-            lang: Language code
-            country: Country code
-            assets: Asset size (SMALL, MEDIUM, LARGE, ORIGINAL)
-        """
-        return self.app_methods.app_print_fields(app_id, fields, lang, country, assets)
-
     # ==================== Search Methods ====================
     
     def search_analyze(self, query: str, count: int = Config.DEFAULT_SEARCH_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> List[Dict]:
@@ -174,30 +150,6 @@ class GPlayScraper:
             List of dictionaries with requested fields
         """
         return self.search_methods.search_get_fields(query, fields, count, lang, country)
-
-    def search_print_field(self, query: str, field: str, count: int = Config.DEFAULT_SEARCH_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print single field from search results.
-        
-        Args:
-            query: Search query string
-            field: Field name to print
-            count: Number of results
-            lang: Language code
-            country: Country code
-        """
-        return self.search_methods.search_print_field(query, field, count, lang, country)
-
-    def search_print_fields(self, query: str, fields: List[str], count: int = Config.DEFAULT_SEARCH_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print multiple fields from search results.
-        
-        Args:
-            query: Search query string
-            fields: List of field names
-            count: Number of results
-            lang: Language code
-            country: Country code
-        """
-        return self.search_methods.search_print_fields(query, fields, count, lang, country)
 
     # ==================== Reviews Methods ====================
     
@@ -251,34 +203,6 @@ class GPlayScraper:
         """
         return self.reviews_methods.reviews_get_fields(app_id, fields, count, lang, country, sort)
 
-    def reviews_print_field(self, app_id: str, field: str, count: int = Config.DEFAULT_REVIEWS_COUNT,
-                           lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY, sort: str = Config.DEFAULT_REVIEWS_SORT) -> None:
-        """Print single field from reviews.
-        
-        Args:
-            app_id: Google Play app ID
-            field: Field name to print
-            count: Number of reviews
-            lang: Language code
-            country: Country code
-            sort: Sort order
-        """
-        return self.reviews_methods.reviews_print_field(app_id, field, count, lang, country, sort)
-
-    def reviews_print_fields(self, app_id: str, fields: List[str], count: int = Config.DEFAULT_REVIEWS_COUNT,
-                            lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY, sort: str = Config.DEFAULT_REVIEWS_SORT) -> None:
-        """Print multiple fields from reviews.
-        
-        Args:
-            app_id: Google Play app ID
-            fields: List of field names
-            count: Number of reviews
-            lang: Language code
-            country: Country code
-            sort: Sort order
-        """
-        return self.reviews_methods.reviews_print_fields(app_id, fields, count, lang, country, sort)
-
     # ==================== Developer Methods ====================
     
     def developer_analyze(self, dev_id: str, count: int = Config.DEFAULT_DEVELOPER_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> List[Dict]:
@@ -325,30 +249,6 @@ class GPlayScraper:
         """
         return self.developer_methods.developer_get_fields(dev_id, fields, count, lang, country)
 
-    def developer_print_field(self, dev_id: str, field: str, count: int = Config.DEFAULT_DEVELOPER_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print single field from developer apps.
-        
-        Args:
-            dev_id: Developer ID
-            field: Field name to print
-            count: Number of apps
-            lang: Language code
-            country: Country code
-        """
-        return self.developer_methods.developer_print_field(dev_id, field, count, lang, country)
-
-    def developer_print_fields(self, dev_id: str, fields: List[str], count: int = Config.DEFAULT_DEVELOPER_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print multiple fields from developer apps.
-        
-        Args:
-            dev_id: Developer ID
-            fields: List of field names
-            count: Number of apps
-            lang: Language code
-            country: Country code
-        """
-        return self.developer_methods.developer_print_fields(dev_id, fields, count, lang, country)
-
     # ==================== Similar Methods ====================
     
     def similar_analyze(self, app_id: str, count: int = Config.DEFAULT_SIMILAR_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> List[Dict]:
@@ -394,30 +294,6 @@ class GPlayScraper:
             List of dictionaries with requested fields
         """
         return self.similar_methods.similar_get_fields(app_id, fields, count, lang, country)
-
-    def similar_print_field(self, app_id: str, field: str, count: int = Config.DEFAULT_SIMILAR_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print single field from similar apps.
-        
-        Args:
-            app_id: Google Play app ID
-            field: Field name to print
-            count: Number of similar apps
-            lang: Language code
-            country: Country code
-        """
-        return self.similar_methods.similar_print_field(app_id, field, count, lang, country)
-
-    def similar_print_fields(self, app_id: str, fields: List[str], count: int = Config.DEFAULT_SIMILAR_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print multiple fields from similar apps.
-        
-        Args:
-            app_id: Google Play app ID
-            fields: List of field names
-            count: Number of similar apps
-            lang: Language code
-            country: Country code
-        """
-        return self.similar_methods.similar_print_fields(app_id, fields, count, lang, country)
 
     # ==================== List Methods ====================
     
@@ -468,32 +344,6 @@ class GPlayScraper:
         """
         return self.list_methods.list_get_fields(collection, fields, category, count, lang, country)
 
-    def list_print_field(self, collection: str, field: str, category: str = Config.DEFAULT_LIST_CATEGORY, count: int = Config.DEFAULT_LIST_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print single field from top charts.
-        
-        Args:
-            collection: Collection type
-            field: Field name to print
-            category: App category
-            count: Number of apps
-            lang: Language code
-            country: Country code
-        """
-        return self.list_methods.list_print_field(collection, field, category, count, lang, country)
-
-    def list_print_fields(self, collection: str, fields: List[str], category: str = Config.DEFAULT_LIST_CATEGORY, count: int = Config.DEFAULT_LIST_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print multiple fields from top charts.
-        
-        Args:
-            collection: Collection type
-            fields: List of field names
-            category: App category
-            count: Number of apps
-            lang: Language code
-            country: Country code
-        """
-        return self.list_methods.list_print_fields(collection, fields, category, count, lang, country)
-
     # ==================== Suggest Methods ====================
     
     def suggest_analyze(self, term: str, count: int = Config.DEFAULT_SUGGEST_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> List[str]:
@@ -523,14 +373,3 @@ class GPlayScraper:
             Dictionary mapping terms to their suggestions
         """
         return self.suggest_methods.suggest_nested(term, count, lang, country)
-
-    def suggest_print_nested(self, term: str, count: int = Config.DEFAULT_SUGGEST_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print nested suggestions as JSON.
-        
-        Args:
-            term: Search term
-            count: Number of suggestions
-            lang: Language code
-            country: Country code
-        """
-        return self.suggest_methods.suggest_print_nested(term, count, lang, country)

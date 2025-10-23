@@ -60,29 +60,5 @@ class TestAppMethods(unittest.TestCase):
             warnings.warn(f"Network/Rate limit error in test_app_get_fields: {e}")
             self.skipTest(f"Skipping due to network/rate limit: {e}")
     
-    def test_app_print_field(self):
-        """Test app_print_field executes without error or handles errors gracefully"""
-        time.sleep(2)  # Wait 2 seconds before request
-        try:
-            print(f"\n✅ app_print_field output:")
-            self.scraper.app_print_field(self.app_id, "title", lang=self.lang, country=self.country)
-        except (NetworkError, RateLimitError, GPlayScraperError) as e:
-            warnings.warn(f"Network/Rate limit error in test_app_print_field: {e}")
-            self.skipTest(f"Skipping due to network/rate limit: {e}")
-        except Exception as e:
-            self.fail(f"app_print_field raised unexpected {type(e).__name__}: {e}")
-    
-    def test_app_print_fields(self):
-        """Test app_print_fields executes without error or handles errors gracefully"""
-        time.sleep(2)  # Wait 2 seconds before request
-        try:
-            print(f"\n✅ app_print_fields output:")
-            self.scraper.app_print_fields(self.app_id, ["title", "score"], lang=self.lang, country=self.country)
-        except (NetworkError, RateLimitError, GPlayScraperError) as e:
-            warnings.warn(f"Network/Rate limit error in test_app_print_fields: {e}")
-            self.skipTest(f"Skipping due to network/rate limit: {e}")
-        except Exception as e:
-            self.fail(f"app_print_fields raised unexpected {type(e).__name__}: {e}")
-    
 if __name__ == '__main__':
     unittest.main()

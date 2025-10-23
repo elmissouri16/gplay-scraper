@@ -57,25 +57,14 @@ apps = scraper.developer_get_fields("5700313618786177705", ["title", "score", "f
 # Returns: [{'title': 'App 1', 'score': 4.5, 'free': True}, ...]
 ```
 
-### `developer_print_field(dev_id, field, count=100, lang='en', country='us')`
-Prints a specific field from all developer apps.
+### Formatting Tips
+
+Use standard Python formatting to display the data returned by `developer_get_field()` or `developer_get_fields()`:
 
 ```python
-scraper.developer_print_field("5700313618786177705", "title")
-# Output:
-# 1. title: App 1
-# 2. title: App 2
-# 3. title: App 3
-```
-
-### `developer_print_fields(dev_id, fields, count=100, lang='en', country='us')`
-Prints multiple fields from all developer apps.
-
-```python
-scraper.developer_print_fields("5700313618786177705", ["title", "score"])
-# Output:
-# 1. title: App 1, score: 4.5
-# 2. title: App 2, score: 4.2
+apps = scraper.developer_get_fields("5700313618786177705", ["title", "score"])
+for idx, app in enumerate(apps[:5], 1):
+    print(f"{idx}. {app['title']} — {app['score']}★")
 ```
 
 ## Available Fields
@@ -182,9 +171,7 @@ print(f"Exported {len(apps)} apps to developer_apps.json")
 - **`developer_analyze()`** - Need complete data for all apps
 - **`developer_get_field()`** - Need just one field from all apps
 - **`developer_get_fields()`** - Need specific fields from all apps (more efficient)
-- **`developer_print_field()`** - Quick debugging/console output
-- **`developer_print_fields()`** - Quick debugging of multiple fields
-- **`developer_print_fields()`** - Explore available data structure
+- **Standard Python formatting** - Use the returned lists/dictionaries for custom console output or storage
 
 ---
 

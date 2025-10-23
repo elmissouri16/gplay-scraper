@@ -49,17 +49,5 @@ class TestSuggestMethods(unittest.TestCase):
             warnings.warn(f"Network/Rate limit error in test_suggest_nested: {e}")
             self.skipTest(f"Skipping due to network/rate limit: {e}")
     
-    def test_suggest_print_nested(self):
-        """Test suggest_print_nested executes without error."""
-        time.sleep(2)
-        try:
-            print(f"\n✅ suggest_print_nested output:")
-            self.scraper.suggest_print_nested(self.term, count=self.count, lang=self.lang, country=self.country)
-        except (NetworkError, RateLimitError, GPlayScraperError) as e:
-            warnings.warn(f"Network/Rate limit error in test_suggest_print_nested: {e}")
-            self.skipTest(f"Skipping due to network/rate limit: {e}")
-        except Exception as e:
-            self.fail(f"suggest_print_nested raised unexpected {e}")
-    
 if __name__ == '__main__':
     unittest.main()

@@ -1,6 +1,6 @@
 """
 List Methods Example
-Demonstrates five list methods for getting top charts
+Demonstrates the core list helpers for exploring top charts data.
 
 Parameters:
 - collection: Chart type - 'TOP_FREE', 'TOP_PAID', 'TOP_GROSSING' (default: 'TOP_FREE')
@@ -37,10 +37,12 @@ print("\n3. list_get_fields(collection, fields, category='APPLICATION', count=10
 apps_data = scraper.list_get_fields(collection, ["title", "score"], category, count=10, lang=lang, country=country)
 print(f"   First 2 apps: {apps_data[:2]}")
 
-# 4. list_print_field() - Print single field from all apps
-print("\n4. list_print_field(collection, field, category='APPLICATION', count=100, lang='en', country='us')")
-scraper.list_print_field(collection, "title", category, count=5, lang=lang, country=country)
+# 4. Display first five titles
+print("\n4. Display first five titles from list_get_field")
+for idx, title in enumerate(titles[:5], 1):
+    print(f"   {idx}. {title}")
 
-# 5. list_print_fields() - Print multiple fields from all apps
-print("\n5. list_print_fields(collection, fields, category='APPLICATION', count=100, lang='en', country='us')")
-scraper.list_print_fields(collection, ["title", "score"], category, count=5, lang=lang, country=country)
+# 5. Display first five apps with title and score
+print("\n5. Display first five apps with title and score")
+for idx, app in enumerate(apps_data[:5], 1):
+    print(f"   {idx}. {app.get('title', 'N/A')} — {app.get('score', 'N/A')}★")

@@ -63,29 +63,5 @@ class TestSimilarMethods(unittest.TestCase):
             warnings.warn(f"Network/Rate limit error in test_similar_get_fields: {e}")
             self.skipTest(f"Skipping due to network/rate limit: {e}")
     
-    def test_similar_print_field(self):
-        """Test similar_print_field executes without error."""
-        time.sleep(2)
-        try:
-            print(f"\n✅ similar_print_field output:")
-            self.scraper.similar_print_field(self.app_id, "title", count=self.count, lang=self.lang, country=self.country)
-        except (NetworkError, RateLimitError, GPlayScraperError) as e:
-            warnings.warn(f"Network/Rate limit error in test_similar_print_field: {e}")
-            self.skipTest(f"Skipping due to network/rate limit: {e}")
-        except Exception as e:
-            self.fail(f"similar_print_field raised unexpected {e}")
-    
-    def test_similar_print_fields(self):
-        """Test similar_print_fields executes without error."""
-        time.sleep(2)
-        try:
-            print(f"\n✅ similar_print_fields output:")
-            self.scraper.similar_print_fields(self.app_id, ["title", "score"], count=self.count, lang=self.lang, country=self.country)
-        except (NetworkError, RateLimitError, GPlayScraperError) as e:
-            warnings.warn(f"Network/Rate limit error in test_similar_print_fields: {e}")
-            self.skipTest(f"Skipping due to network/rate limit: {e}")
-        except Exception as e:
-            self.fail(f"similar_print_fields raised unexpected {e}")
-    
 if __name__ == '__main__':
     unittest.main()

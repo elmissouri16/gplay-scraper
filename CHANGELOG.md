@@ -28,7 +28,7 @@ All notable changes to this project will be documented in this file.
   - `MEDIUM` (1024px width) - Default
   - `LARGE` (2048px width)
   - `ORIGINAL` (Maximum size)
-  - Available in all app methods: `app_analyze()`, `app_get_field()`, `app_get_fields()`, `app_print_field()`, `app_print_fields()`
+  - Available in all app methods: `app_analyze()`, `app_get_field()`, `app_get_fields()`
   - Affects icon, headerImage, screenshots, and videoImage URLs
 
 ### Bug Fixes
@@ -45,7 +45,8 @@ All notable changes to this project will be documented in this file.
 # Use different asset sizes
 data = scraper.app_analyze("com.whatsapp", assets="LARGE")
 icon = scraper.app_get_field("com.whatsapp", "icon", assets="SMALL")
-scraper.app_print_fields("com.whatsapp", ["title", "score"], assets="ORIGINAL")
+summary = scraper.app_get_fields("com.whatsapp", ["title", "score"], assets="ORIGINAL")
+print(summary)
 ```
 
 ## [1.0.3] - 2025-10-15
@@ -85,9 +86,7 @@ Each method type includes convenience helpers:
 - `analyze()` - Get all data as dictionary/list
 - `get_field()` - Get single field value
 - `get_fields()` - Get multiple fields as dictionary
-- `print_field()` - Print single field to console
-- `print_fields()` - Print multiple fields to console
-- Suggest methods additionally provide `nested()` / `print_nested()` for recursive suggestions
+- Suggest methods additionally provide `nested()` for recursive suggestions
 
 #### 7 HTTP Clients with Automatic Fallback *(deprecated in Unreleased – replaced by curl_cffi-only backend)*
 
@@ -235,8 +234,6 @@ data = scraper.app_analyze("com.whatsapp")
   - `analyze()` - Complete app analysis
   - `get_field()` - Single field retrieval
   - `get_fields()` - Multiple field retrieval
-  - `print_field()` - Direct field printing
-  - `print_fields()` - Multiple field printing
 - Comprehensive documentation and examples
 - Error handling and logging
 - Rate limiting considerations

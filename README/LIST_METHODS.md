@@ -57,25 +57,14 @@ apps = scraper.list_get_fields("TOP_PAID", ["title", "price", "score"], "GAME")
 # Returns: [{'title': 'App 1', 'price': 4.99, 'score': 4.5}, ...]
 ```
 
-### `list_print_field(collection, field, category='APPLICATION', count=100, lang='en', country='us')`
-Prints a specific field from all chart apps.
+### Formatting Tips
+
+Use standard Python formatting to present chart data:
 
 ```python
-scraper.list_print_field("TOP_FREE", "title", "APPLICATION", count=20)
-# Output:
-# 1. title: App 1
-# 2. title: App 2
-# 3. title: App 3
-```
-
-### `list_print_fields(collection, fields, category='APPLICATION', count=100, lang='en', country='us')`
-Prints multiple fields from all chart apps.
-
-```python
-scraper.list_print_fields("TOP_FREE", ["title", "score"], "GAME", count=20)
-# Output:
-# 1. title: App 1, score: 4.5
-# 2. title: App 2, score: 4.2
+apps = scraper.list_get_fields("TOP_FREE", ["title", "score"], "GAME", count=10)
+for idx, app in enumerate(apps, 1):
+    print(f"{idx}. {app['title']} — {app['score']}★")
 ```
 
 ## Available Fields
@@ -282,9 +271,7 @@ track_charts()
 - **`list_analyze()`** - Need complete data for all chart apps
 - **`list_get_field()`** - Need just one field from all apps
 - **`list_get_fields()`** - Need specific fields from all apps (more efficient)
-- **`list_print_field()`** - Quick debugging/console output
-- **`list_print_fields()`** - Quick debugging of multiple fields
-- **`list_print_fields()`** - Explore available data structure
+- **Standard Python formatting** - Use the returned data for custom console output or reporting
 
 ---
 

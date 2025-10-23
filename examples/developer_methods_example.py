@@ -1,6 +1,6 @@
 """
 Developer Methods Example
-Demonstrates five developer methods for getting developer's apps
+Demonstrates the core developer helpers for retrieving and formatting a portfolio.
 
 Parameters:
 - dev_id: Developer ID (numeric or string)
@@ -35,10 +35,12 @@ print("\n3. developer_get_fields(dev_id, fields, count=100, lang='en', country='
 apps_data = scraper.developer_get_fields(dev_id, ["title", "score"], count=10, lang=lang, country=country)
 print(f"   First 2 apps: {apps_data[:2]}")
 
-# 4. developer_print_field() - Print single field from all apps
-print("\n4. developer_print_field(dev_id, field, count=100, lang='en', country='us')")
-scraper.developer_print_field(dev_id, "title", count=5, lang=lang, country=country)
+# 4. Display first five titles
+print("\n4. Display first five titles from developer_get_field")
+for idx, title in enumerate(titles[:5], 1):
+    print(f"   {idx}. {title}")
 
-# 5. developer_print_fields() - Print multiple fields from all apps
-print("\n5. developer_print_fields(dev_id, fields, count=100, lang='en', country='us')")
-scraper.developer_print_fields(dev_id, ["title", "score"], count=5, lang=lang, country=country)
+# 5. Display first five apps with scores
+print("\n5. Display first five apps with title and score")
+for idx, app in enumerate(apps_data[:5], 1):
+    print(f"   {idx}. {app.get('title', 'N/A')} — {app.get('score', 'N/A')}★")

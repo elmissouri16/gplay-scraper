@@ -68,30 +68,13 @@ media = scraper.app_get_fields("com.whatsapp", ["icon", "screenshots"], assets="
 # Returns: Media URLs with 512px width
 ```
 
-### `app_print_field(app_id, field, lang='en', country='us', assets=None)`
-Prints a single field to console.
+### Formatting Tips
+
+Use standard Python formatting to present the data returned by `app_get_field()` or `app_get_fields()`:
 
 ```python
-scraper.app_print_field("com.whatsapp", "title")
-# Output: title: WhatsApp Messenger
-
-# Print large icon URL
-scraper.app_print_field("com.whatsapp", "icon", assets="LARGE")
-# Output: icon: https://...=w2048
-```
-
-### `app_print_fields(app_id, fields, lang='en', country='us', assets=None)`
-Prints multiple fields to console.
-
-```python
-scraper.app_print_fields("com.whatsapp", ["title", "score"])
-# Output:
-# title: WhatsApp Messenger
-# score: 4.2
-
-# Print media with original quality
-scraper.app_print_fields("com.whatsapp", ["icon", "screenshots"], assets="ORIGINAL")
-# Output: URLs with maximum image quality
+info = scraper.app_get_fields("com.whatsapp", ["title", "score", "free"])
+print(f"{info['title']} — {info['score']}★ — {'Free' if info['free'] else 'Paid'}")
 ```
 
 ## Available Fields (65+)
@@ -279,10 +262,8 @@ The app_id is: `com.whatsapp`
 
 - **`app_analyze()`** - Need all data for comprehensive analysis
 - **`app_get_field()`** - Need just one specific value
-- **`app_get_fields()`** - Need several specific fields (more efficient than multiple get_field calls)
-- **`app_print_field()`** - Quick debugging/console output
-- **`app_print_fields()`** - Quick debugging of multiple values
-- **`app_print_fields()`** - Explore available data structure
+- **`app_get_fields()`** - Need several specific fields (more efficient than multiple `app_get_field` calls)
+- **Standard Python formatting** - Use the returned dictionaries/lists for custom console output or serialization
 
 ---
 

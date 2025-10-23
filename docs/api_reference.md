@@ -8,7 +8,7 @@ This page summarises the public surface of the library and links to the primary 
 
 - Main facade class used in all examples.
 - Provides 7 method families (`app_*`, `search_*`, `reviews_*`, `developer_*`, `list_*`, `similar_*`, `suggest_*`).
-- Each family implements `analyze`, `get_field`, `get_fields`, `print_field`, and `print_fields`.
+- Each family implements `analyze`, `get_field`, and `get_fields`.
 - Optional parameters include `lang`, `country`, `count`, and `assets`.
 
 See the dedicated guides in `README/`:
@@ -46,12 +46,9 @@ Catch these exceptions to deliver precise error handling in production scripts.
 - `gplay_scraper.utils.http_client` – Thin wrapper around `curl_cffi` providing retry and impersonation logic.
 - `gplay_scraper.utils.helpers` – Utility functions for text cleaning, date parsing, and JSON post-processing.
 
-## CLI Helpers
+## Formatting Helpers
 
-The project ships with print helpers for quick console inspection:
-
-- `*_print_field()` – prints one field.
-- `*_print_fields()` – prints multiple fields.
+Use `analyze()`, `get_field()`, and `get_fields()` to retrieve data, then format it with standard Python utilities such as `print()`, `json.dumps()`, or your preferred templating library.
 
 ## Versioning
 

@@ -1,6 +1,6 @@
 """
 Search Methods Example
-Demonstrates five search methods for finding apps
+Demonstrates the core search helpers for finding and formatting app results.
 
 Parameters:
 - query: Search keyword
@@ -35,10 +35,12 @@ print("\n3. search_get_fields(query, fields, count=100, lang='en', country='us')
 apps = scraper.search_get_fields(query, ["title", "score"], count=count, lang=lang, country=country)
 print(f"   First 2 apps: {apps[:2]}")
 
-# 4. search_print_field() - Print single field from all results
-print("\n4. search_print_field(query, field, count=100, lang='en', country='us')")
-scraper.search_print_field(query, "title", count=5, lang=lang, country=country)
+# 4. Display first five titles
+print("\n4. Display first five titles from search_get_field")
+for idx, title in enumerate(titles[:5], 1):
+    print(f"   {idx}. {title}")
 
-# 5. search_print_fields() - Print multiple fields from all results
-print("\n5. search_print_fields(query, fields, count=100, lang='en', country='us')")
-scraper.search_print_fields(query, ["title", "developer"], count=5, lang=lang, country=country)
+# 5. Display first five apps with title and developer
+print("\n5. Display first five apps with title and developer")
+for idx, app in enumerate(apps[:5], 1):
+    print(f"   {idx}. {app.get('title', 'N/A')} — {app.get('developer', 'Unknown')}")

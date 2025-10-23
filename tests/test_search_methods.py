@@ -68,29 +68,5 @@ class TestSearchMethods(unittest.TestCase):
             warnings.warn(f"Network/Rate limit error in test_search_get_fields: {e}")
             self.skipTest(f"Skipping due to network/rate limit: {e}")
     
-    def test_search_print_field(self):
-        """Test search_print_field executes without error"""
-        time.sleep(2)
-        try:
-            print(f"\n✅ search_print_field output for '{self.query}':")
-            self.scraper.search_print_field(self.query, "title", count=self.count, lang=self.lang, country=self.country)
-        except (NetworkError, RateLimitError, GPlayScraperError) as e:
-            warnings.warn(f"Network/Rate limit error in test_search_print_field: {e}")
-            self.skipTest(f"Skipping due to network/rate limit: {e}")
-        except Exception as e:
-            self.fail(f"search_print_field raised unexpected {type(e).__name__}: {e}")
-    
-    def test_search_print_fields(self):
-        """Test search_print_fields executes without error"""
-        time.sleep(2)
-        try:
-            print(f"\n✅ search_print_fields output for '{self.query}':")
-            self.scraper.search_print_fields(self.query, ["title", "score"], count=self.count, lang=self.lang, country=self.country)
-        except (NetworkError, RateLimitError, GPlayScraperError) as e:
-            warnings.warn(f"Network/Rate limit error in test_search_print_fields: {e}")
-            self.skipTest(f"Skipping due to network/rate limit: {e}")
-        except Exception as e:
-            self.fail(f"search_print_fields raised unexpected {type(e).__name__}: {e}")
-    
 if __name__ == '__main__':
     unittest.main()
