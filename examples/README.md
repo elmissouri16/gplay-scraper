@@ -5,64 +5,57 @@ This folder contains example scripts demonstrating all methods for each of the 7
 ## Files
 
 ### 1. app_methods_example.py
-Demonstrates all 6 app methods:
+Demonstrates five app methods:
 - `app_analyze()` - Get all data as dictionary
 - `app_get_field()` - Get single field value
 - `app_get_fields()` - Get multiple fields
 - `app_print_field()` - Print single field to console
 - `app_print_fields()` - Print multiple fields to console
-- `app_print_all()` - Print all data as JSON
 
 ### 2. search_methods_example.py
-Demonstrates all 6 search methods:
+Demonstrates five search methods:
 - `search_analyze()` - Get all search results
 - `search_get_field()` - Get single field from results
 - `search_get_fields()` - Get multiple fields from results
 - `search_print_field()` - Print single field from results
 - `search_print_fields()` - Print multiple fields from results
-- `search_print_all()` - Print all results as JSON
 
 ### 3. reviews_methods_example.py
-Demonstrates all 6 reviews methods:
+Demonstrates five reviews methods:
 - `reviews_analyze()` - Get all reviews
 - `reviews_get_field()` - Get single field from reviews
 - `reviews_get_fields()` - Get multiple fields from reviews
 - `reviews_print_field()` - Print single field from reviews
 - `reviews_print_fields()` - Print multiple fields from reviews
-- `reviews_print_all()` - Print all reviews as JSON
 
 ### 4. developer_methods_example.py
-Demonstrates all 6 developer methods:
+Demonstrates five developer methods:
 - `developer_analyze()` - Get all developer apps
 - `developer_get_field()` - Get single field from apps
 - `developer_get_fields()` - Get multiple fields from apps
 - `developer_print_field()` - Print single field from apps
 - `developer_print_fields()` - Print multiple fields from apps
-- `developer_print_all()` - Print all apps as JSON
 
 ### 5. list_methods_example.py
-Demonstrates all 6 list methods:
+Demonstrates five list methods:
 - `list_analyze()` - Get all top chart apps
 - `list_get_field()` - Get single field from apps
 - `list_get_fields()` - Get multiple fields from apps
 - `list_print_field()` - Print single field from apps
 - `list_print_fields()` - Print multiple fields from apps
-- `list_print_all()` - Print all apps as JSON
 
 ### 6. similar_methods_example.py
-Demonstrates all 6 similar methods:
+Demonstrates five similar methods:
 - `similar_analyze()` - Get all similar apps
 - `similar_get_field()` - Get single field from apps
 - `similar_get_fields()` - Get multiple fields from apps
 - `similar_print_field()` - Print single field from apps
 - `similar_print_fields()` - Print multiple fields from apps
-- `similar_print_all()` - Print all apps as JSON
 
 ### 7. suggest_methods_example.py
-Demonstrates all 4 suggest methods:
+Demonstrates three suggest methods:
 - `suggest_analyze()` - Get search suggestions
 - `suggest_nested()` - Get nested suggestions
-- `suggest_print_all()` - Print suggestions as JSON
 - `suggest_print_nested()` - Print nested suggestions as JSON
 
 ## Running Examples

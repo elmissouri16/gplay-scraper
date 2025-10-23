@@ -104,37 +104,37 @@ from gplay_scraper import GPlayScraper
 scraper = GPlayScraper()
 
 # App Methods
-scraper.app_print_all("com.whatsapp")
+scraper.app_print_fields("com.whatsapp", ["title", "score", "installs"])
 
 # Search Methods
-scraper.search_print_all("fitness tracker", count=20)
+scraper.search_print_fields("fitness tracker", ["title", "developer"], count=20)
 
 # Reviews Methods
-scraper.reviews_print_all("com.whatsapp", count=100, sort="NEWEST")
+scraper.reviews_print_fields("com.whatsapp", ["userName", "score"], count=100, sort="NEWEST")
 
 # Developer Methods
-scraper.developer_print_all("5700313618786177705", count=50)
+scraper.developer_print_fields("5700313618786177705", ["title", "score"], count=50)
 
 # List Methods
-scraper.list_print_all("TOP_FREE", "GAME", count=50)
+scraper.list_print_fields("TOP_FREE", "GAME", ["title", "score"], count=50)
 
 # Similar Methods
-scraper.similar_print_all("com.whatsapp", count=30)
+scraper.similar_print_fields("com.whatsapp", ["title", "score"], count=30)
 
 # Suggest Methods
-scraper.suggest_print_all("photo editor", count=10)
+scraper.suggest_print_nested("photo editor", count=10)
 ```
 
 ## 📖 Method Pattern
 
-Each method type follows the same pattern with 6 functions:
+Each method type follows the same pattern with 5 functions:
 
 - **`analyze()`** - Get all data as dictionary/list
 - **`get_field()`** - Get single field value
 - **`get_fields()`** - Get multiple fields as dictionary
 - **`print_field()`** - Print single field to console
 - **`print_fields()`** - Print multiple fields to console
-- **`print_all()`** - Print all data as formatted JSON
+Suggest methods additionally expose `nested()` / `print_nested()`.
 
 ## 🌍 Multi-Language & Multi-Region
 

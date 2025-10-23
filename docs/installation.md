@@ -40,7 +40,7 @@ scraper = GPlayScraper()
 data = scraper.app_analyze("com.whatsapp")
 print(f"Success! Retrieved: {data['title']}")
 
-scraper.app_print_all("com.whatsapp")  # alternate smoke test
+scraper.app_print_field("com.whatsapp", "title")  # alternate smoke test
 ```
 
 ## Troubleshooting
@@ -59,6 +59,6 @@ scraper.app_print_all("com.whatsapp")  # alternate smoke test
 - **Common parameters** – All methods accept `lang`, `country`, and `count`.
 
   ```python
-  scraper.app_print_all("com.whatsapp", lang="es", country="es")
-  scraper.search_print_all("games", count=50, lang="en", country="us")
+  scraper.app_print_fields("com.whatsapp", ["title", "score"], lang="es", country="es")
+  scraper.search_print_fields("games", ["title", "developer"], count=50, lang="en", country="us")
   ```

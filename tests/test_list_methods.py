@@ -68,7 +68,7 @@ class TestListMethods(unittest.TestCase):
         """Test list_print_field executes without error."""
         time.sleep(2)
         try:
-            print(f"\n✅ list_print_field output:")
+            print("\n✅ list_print_field output:")
             self.scraper.list_print_field(self.collection, self.category, "title", count=self.count, lang=self.lang, country=self.country)
         except (NetworkError, RateLimitError, GPlayScraperError) as e:
             warnings.warn(f"Network/Rate limit error in test_list_print_field: {e}")
@@ -80,7 +80,7 @@ class TestListMethods(unittest.TestCase):
         """Test list_print_fields executes without error."""
         time.sleep(2)
         try:
-            print(f"\n✅ list_print_fields output:")
+            print("\n✅ list_print_fields output:")
             self.scraper.list_print_fields(self.collection, self.category, ["title", "score"], count=self.count, lang=self.lang, country=self.country)
         except (NetworkError, RateLimitError, GPlayScraperError) as e:
             warnings.warn(f"Network/Rate limit error in test_list_print_fields: {e}")
@@ -88,17 +88,5 @@ class TestListMethods(unittest.TestCase):
         except Exception as e:
             self.fail(f"list_print_fields raised unexpected {e}")
     
-    def test_list_print_all(self):
-        """Test list_print_all executes without error."""
-        time.sleep(2)
-        try:
-            print(f"\n✅ list_print_all output:")
-            self.scraper.list_print_all(self.collection, self.category, count=self.count, lang=self.lang, country=self.country)
-        except (NetworkError, RateLimitError, GPlayScraperError) as e:
-            warnings.warn(f"Network/Rate limit error in test_list_print_all: {e}")
-            self.skipTest(f"Skipping due to network/rate limit: {e}")
-        except Exception as e:
-            self.fail(f"list_print_all raised unexpected {e}")
-
 if __name__ == '__main__':
     unittest.main()

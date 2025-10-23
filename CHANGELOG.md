@@ -28,7 +28,7 @@ All notable changes to this project will be documented in this file.
   - `MEDIUM` (1024px width) - Default
   - `LARGE` (2048px width)
   - `ORIGINAL` (Maximum size)
-  - Available in all app methods: `app_analyze()`, `app_get_field()`, `app_get_fields()`, `app_print_field()`, `app_print_fields()`, `app_print_all()`
+  - Available in all app methods: `app_analyze()`, `app_get_field()`, `app_get_fields()`, `app_print_field()`, `app_print_fields()`
   - Affects icon, headerImage, screenshots, and videoImage URLs
 
 ### Bug Fixes
@@ -45,7 +45,7 @@ All notable changes to this project will be documented in this file.
 # Use different asset sizes
 data = scraper.app_analyze("com.whatsapp", assets="LARGE")
 icon = scraper.app_get_field("com.whatsapp", "icon", assets="SMALL")
-scraper.app_print_all("com.whatsapp", assets="ORIGINAL")
+scraper.app_print_fields("com.whatsapp", ["title", "score"], assets="ORIGINAL")
 ```
 
 ## [1.0.3] - 2025-10-15
@@ -81,13 +81,13 @@ This version represents a complete rewrite of GPlay Scraper with a focus on modu
 - **Similar Methods** - Find similar/competitor apps for market research and competitive analysis
 - **Suggest Methods** - Get search suggestions and autocomplete for ASO keyword research
 
-Each method type includes 6 functions:
+Each method type includes convenience helpers:
 - `analyze()` - Get all data as dictionary/list
 - `get_field()` - Get single field value
 - `get_fields()` - Get multiple fields as dictionary
 - `print_field()` - Print single field to console
 - `print_fields()` - Print multiple fields to console
-- `print_all()` - Print all data as formatted JSON
+- Suggest methods additionally provide `nested()` / `print_nested()` for recursive suggestions
 
 #### 7 HTTP Clients with Automatic Fallback *(deprecated in Unreleased – replaced by curl_cffi-only backend)*
 
@@ -237,7 +237,6 @@ data = scraper.app_analyze("com.whatsapp")
   - `get_fields()` - Multiple field retrieval
   - `print_field()` - Direct field printing
   - `print_fields()` - Multiple field printing
-  - `print_all()` - Complete data printing
 - Comprehensive documentation and examples
 - Error handling and logging
 - Rate limiting considerations

@@ -78,16 +78,6 @@ scraper.developer_print_fields("5700313618786177705", ["title", "score"])
 # 2. title: App 2, score: 4.2
 ```
 
-### `developer_print_all(dev_id, count=100, lang='en', country='us')`
-Prints all data for all developer apps as formatted JSON.
-
-```python
-scraper.developer_print_all("5700313618786177705")
-# Output: Full JSON array with all apps
-```
-
----
-
 ## Available Fields
 
 - `appId` - App package name (e.g., "com.example.app")
@@ -194,7 +184,7 @@ print(f"Exported {len(apps)} apps to developer_apps.json")
 - **`developer_get_fields()`** - Need specific fields from all apps (more efficient)
 - **`developer_print_field()`** - Quick debugging/console output
 - **`developer_print_fields()`** - Quick debugging of multiple fields
-- **`developer_print_all()`** - Explore available data structure
+- **`developer_print_fields()`** - Explore available data structure
 
 ---
 

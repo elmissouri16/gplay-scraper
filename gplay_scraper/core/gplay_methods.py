@@ -1,12 +1,8 @@
 """Method classes for all 7 scraping types.
 
-This module contains 7 method classes, each providing 6 functions (except Suggest with 4):
-- analyze(): Get all data
-- get_field(): Get single field
-- get_fields(): Get multiple fields
-- print_field(): Print single field
-- print_fields(): Print multiple fields
-- print_all(): Print all data as JSON
+This module contains 7 method classes. Most provide helper methods to analyze
+data, retrieve specific fields, and print selected values; suggest methods also
+offer utilities for nested suggestions.
 """
 
 import json
@@ -122,22 +118,6 @@ class AppMethods:
             except UnicodeEncodeError:
                 print(f"{field}: {repr(value)}")
 
-    def app_print_all(self, app_id: str, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY, assets: str = None) -> None:
-        """Print all app data as JSON to console.
-        
-        Args:
-            app_id: Google Play app ID
-            lang: Language code
-            country: Country code
-            assets: Asset size (SMALL, MEDIUM, LARGE, ORIGINAL)
-        """
-        data = self.app_analyze(app_id, lang, country, assets)
-        try:
-            print(json.dumps(data, indent=2, ensure_ascii=False))
-        except UnicodeEncodeError:
-            print(json.dumps(data, indent=2, ensure_ascii=True))
-
-
 class SearchMethods:
     """Methods for searching apps by keyword."""
 
@@ -241,23 +221,6 @@ class SearchMethods:
             except UnicodeEncodeError:
                 field_str = ', '.join(f'{field}: {repr(value)}' for field, value in app_data.items())
                 print(f"{i}. {field_str}")
-
-    def search_print_all(self, query: str, count: int = Config.DEFAULT_SEARCH_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print all search results as JSON.
-        
-        Args:
-            query: Search query string
-            count: Number of results
-            lang: Language code
-            country: Country code
-        """
-        results = self.search_analyze(query, count, lang, country)
-        for i, result in enumerate(results):
-            try:
-                print(json.dumps(result, indent=2, ensure_ascii=False))
-            except UnicodeEncodeError:
-                print(json.dumps(result, indent=2, ensure_ascii=True))
-
 
 class ReviewsMethods:
     """Methods for extracting user reviews and ratings."""
@@ -378,24 +341,6 @@ class ReviewsMethods:
                 except UnicodeEncodeError:
                     print(f"{field}: {repr(value)}")
 
-    def reviews_print_all(self, app_id: str, count: int = Config.DEFAULT_REVIEWS_COUNT, lang: str = Config.DEFAULT_LANGUAGE,
-                         country: str = Config.DEFAULT_COUNTRY, sort: str = Config.DEFAULT_REVIEWS_SORT) -> None:
-        """Print all reviews as JSON.
-        
-        Args:
-            app_id: Google Play app ID
-            count: Number of reviews
-            lang: Language code
-            country: Country code
-            sort: Sort order
-        """
-        reviews_data = self.reviews_analyze(app_id, count, lang, country, sort)
-        try:
-            print(json.dumps(reviews_data, indent=2, ensure_ascii=False))
-        except UnicodeEncodeError:
-            print(json.dumps(reviews_data, indent=2, ensure_ascii=True))
-
-
 class DeveloperMethods:
     """Methods for getting all apps from a developer."""
 
@@ -497,22 +442,6 @@ class DeveloperMethods:
             except UnicodeEncodeError:
                 field_str = ', '.join(f'{field}: {repr(value)}' for field, value in app_data.items())
                 print(f"{i+1}. {field_str}")
-
-    def developer_print_all(self, dev_id: str, count: int = Config.DEFAULT_DEVELOPER_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print all developer apps as JSON.
-        
-        Args:
-            dev_id: Developer ID
-            count: Number of apps
-            lang: Language code
-            country: Country code
-        """
-        results = self.developer_analyze(dev_id, count, lang, country)
-        try:
-            print(json.dumps(results, indent=2, ensure_ascii=False))
-        except UnicodeEncodeError:
-            print(json.dumps(results, indent=2, ensure_ascii=True))
-
 
 class SimilarMethods:
     """Methods for finding similar/competitor apps."""
@@ -616,22 +545,6 @@ class SimilarMethods:
                 field_str = ', '.join(f'{field}: {repr(value)}' for field, value in app_data.items())
                 print(f"{i+1}. {field_str}")
 
-    def similar_print_all(self, app_id: str, count: int = Config.DEFAULT_SIMILAR_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print all similar apps as JSON.
-        
-        Args:
-            app_id: Google Play app ID
-            count: Number of similar apps
-            lang: Language code
-            country: Country code
-        """
-        results = self.similar_analyze(app_id, count, lang, country)
-        try:
-            print(json.dumps(results, indent=2, ensure_ascii=False))
-        except UnicodeEncodeError:
-            print(json.dumps(results, indent=2, ensure_ascii=True))
-
-
 class ListMethods:
     """Methods for getting top charts (free, paid, grossing)."""
 
@@ -733,23 +646,6 @@ class ListMethods:
                 field_str = ', '.join(f'{field}: {repr(value)}' for field, value in app_data.items())
                 print(f"{i+1}. {field_str}")
 
-    def list_print_all(self, collection: str = Config.DEFAULT_LIST_COLLECTION, category: str = Config.DEFAULT_LIST_CATEGORY, count: int = Config.DEFAULT_LIST_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print all list apps as JSON.
-        
-        Args:
-            collection: Collection type
-            category: App category
-            count: Number of apps
-            lang: Language code
-            country: Country code
-        """
-        results = self.list_analyze(collection, category, count, lang, country)
-        try:
-            print(json.dumps(results, indent=2, ensure_ascii=False))
-        except UnicodeEncodeError:
-            print(json.dumps(results, indent=2, ensure_ascii=True))
-
-
 class SuggestMethods:
     """Methods for getting search suggestions and autocomplete."""
 
@@ -808,21 +704,6 @@ class SuggestMethods:
             second_level = self.suggest_analyze(suggestion, count, lang, country)
             results[suggestion] = second_level
         return results
-
-    def suggest_print_all(self, term: str, count: int = Config.DEFAULT_SUGGEST_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
-        """Print all suggestions as JSON.
-        
-        Args:
-            term: Search term
-            count: Number of suggestions
-            lang: Language code
-            country: Country code
-        """
-        suggestions = self.suggest_analyze(term, count, lang, country)
-        try:
-            print(json.dumps(suggestions, indent=2, ensure_ascii=False))
-        except UnicodeEncodeError:
-            print(json.dumps(suggestions, indent=2, ensure_ascii=True))
 
     def suggest_print_nested(self, term: str, count: int = Config.DEFAULT_SUGGEST_COUNT, lang: str = Config.DEFAULT_LANGUAGE, country: str = Config.DEFAULT_COUNTRY) -> None:
         """Print nested suggestions as JSON.

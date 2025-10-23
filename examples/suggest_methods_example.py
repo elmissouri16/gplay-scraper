@@ -1,6 +1,6 @@
 """
 Suggest Methods Example
-Demonstrates all 4 suggest methods for getting search suggestions
+Demonstrates three suggest methods for getting search suggestions
 
 Parameters:
 - term: Search term
@@ -31,10 +31,6 @@ print(f"   Nested suggestions (first 2):")
 for i, (key, values) in enumerate(list(nested.items())[:2]):
     print(f"   {key}: {values}")
 
-# 3. suggest_print_all() - Print suggestions as JSON
-print("\n3. suggest_print_all(term, count=5, lang='en', country='us')")
-scraper.suggest_print_all(term, count=count, lang=lang, country=country)
-
-# 4. suggest_print_nested() - Print nested suggestions as JSON
-print("\n4. suggest_print_nested(term, count=5, lang='en', country='us')")
+# 3. suggest_print_nested() - Print nested suggestions as JSON
+print("\n3. suggest_print_nested(term, count=5, lang='en', country='us')")
 scraper.suggest_print_nested(term, count=count, lang=lang, country=country)

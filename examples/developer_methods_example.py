@@ -1,6 +1,6 @@
 """
 Developer Methods Example
-Demonstrates all 6 developer methods for getting developer's apps
+Demonstrates five developer methods for getting developer's apps
 
 Parameters:
 - dev_id: Developer ID (numeric or string)
@@ -42,7 +42,3 @@ scraper.developer_print_field(dev_id, "title", count=5, lang=lang, country=count
 # 5. developer_print_fields() - Print multiple fields from all apps
 print("\n5. developer_print_fields(dev_id, fields, count=100, lang='en', country='us')")
 scraper.developer_print_fields(dev_id, ["title", "score"], count=5, lang=lang, country=country)
-
-# 6. developer_print_all() - Print all developer apps as JSON
-print("\n6. developer_print_all(dev_id, count=100, lang='en', country='us')")
-scraper.developer_print_all(dev_id, count=5, lang=lang, country=country)

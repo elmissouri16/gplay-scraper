@@ -78,16 +78,6 @@ scraper.search_print_fields("social media", ["title", "score"], count=10)
 # 1. title: App 2, score: 4.2
 ```
 
-### `search_print_all(query, count=100, lang='en', country='us')`
-Prints all data for all search results as formatted JSON.
-
-```python
-scraper.search_print_all("social media", count=20)
-# Output: Full JSON array with all search results
-```
-
----
-
 ## Available Fields
 
 - `appId` - App package name (e.g., "com.example.app")
@@ -259,7 +249,7 @@ if paid_apps:
 - **`search_get_fields()`** - Need specific fields from all results (more efficient)
 - **`search_print_field()`** - Quick debugging/console output
 - **`search_print_fields()`** - Quick debugging of multiple fields
-- **`search_print_all()`** - Explore available data structure
+- **`search_print_fields()`** - Explore available data structure
 
 ---
 

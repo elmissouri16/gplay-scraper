@@ -89,17 +89,5 @@ class TestReviewsMethods(unittest.TestCase):
         except Exception as e:
             self.fail(f"reviews_print_fields raised unexpected {e}")
     
-    def test_reviews_print_all(self):
-        """Test reviews_print_all executes without error."""
-        time.sleep(2)
-        try:
-            print(f"\n✅ reviews_print_all output:")
-            self.scraper.reviews_print_all(self.app_id, count=self.count, sort=self.sort, lang=self.lang, country=self.country)
-        except (NetworkError, RateLimitError, GPlayScraperError) as e:
-            warnings.warn(f"Network/Rate limit error in test_reviews_print_all: {e}")
-            self.skipTest(f"Skipping due to network/rate limit: {e}")
-        except Exception as e:
-            self.fail(f"reviews_print_all raised unexpected {e}")
-
 if __name__ == '__main__':
     unittest.main()

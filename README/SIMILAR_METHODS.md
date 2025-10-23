@@ -78,16 +78,6 @@ scraper.similar_print_fields("com.whatsapp", ["title", "score"], count=10)
 # 2. title: App 2, score: 4.2
 ```
 
-### `similar_print_all(app_id, count=100, lang='en', country='us')`
-Prints all data for all similar apps as formatted JSON.
-
-```python
-scraper.similar_print_all("com.whatsapp", count=20)
-# Output: Full JSON array with all similar apps
-```
-
----
-
 ## Available Fields
 
 - `appId` - App package name (e.g., "com.example.app")
@@ -260,7 +250,7 @@ if paid_similar:
 - **`similar_get_fields()`** - Need specific fields from all similar apps (more efficient)
 - **`similar_print_field()`** - Quick debugging/console output
 - **`similar_print_fields()`** - Quick debugging of multiple fields
-- **`similar_print_all()`** - Explore available data structure
+- **`similar_print_fields()`** - Explore available data structure
 
 ---
 

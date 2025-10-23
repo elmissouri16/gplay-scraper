@@ -78,16 +78,6 @@ scraper.list_print_fields("TOP_FREE", ["title", "score"], "GAME", count=20)
 # 2. title: App 2, score: 4.2
 ```
 
-### `list_print_all(collection='TOP_FREE', category='APPLICATION', count=100, lang='en', country='us')`
-Prints all data for all chart apps as formatted JSON.
-
-```python
-scraper.list_print_all("TOP_FREE", "GAME", count=50)
-# Output: Full JSON array with all apps
-```
-
----
-
 ## Available Fields
 
 - `appId` - App package name (e.g., "com.example.app")
@@ -294,7 +284,7 @@ track_charts()
 - **`list_get_fields()`** - Need specific fields from all apps (more efficient)
 - **`list_print_field()`** - Quick debugging/console output
 - **`list_print_fields()`** - Quick debugging of multiple fields
-- **`list_print_all()`** - Explore available data structure
+- **`list_print_fields()`** - Explore available data structure
 
 ---
 

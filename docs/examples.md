@@ -221,7 +221,6 @@ print(f"Screenshots: {len(media['screenshots'])} images")
 print(f"Header: {media['headerImage']}")
 
 scraper.app_print_field(app_id, "icon", assets="LARGE")
-scraper.app_print_all(app_id, assets="ORIGINAL")
 ```
 
 ## Multi-Language Support

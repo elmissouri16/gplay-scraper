@@ -32,13 +32,13 @@ class TestPackageFunctionality(unittest.TestCase):
         scraper = GPlayScraper()
         
         method_groups = [
-            ("app", ["analyze", "get_field", "get_fields", "print_field", "print_fields", "print_all"]),
-            ("search", ["analyze", "get_field", "get_fields", "print_field", "print_fields", "print_all"]),
-            ("reviews", ["analyze", "get_field", "get_fields", "print_field", "print_fields", "print_all"]),
-            ("developer", ["analyze", "get_field", "get_fields", "print_field", "print_fields", "print_all"]),
-            ("similar", ["analyze", "get_field", "get_fields", "print_field", "print_fields", "print_all"]),
-            ("list", ["analyze", "get_field", "get_fields", "print_field", "print_fields", "print_all"]),
-            ("suggest", ["analyze", "nested", "print_all", "print_nested"]),
+            ("app", ["analyze", "get_field", "get_fields", "print_field", "print_fields"]),
+            ("search", ["analyze", "get_field", "get_fields", "print_field", "print_fields"]),
+            ("reviews", ["analyze", "get_field", "get_fields", "print_field", "print_fields"]),
+            ("developer", ["analyze", "get_field", "get_fields", "print_field", "print_fields"]),
+            ("similar", ["analyze", "get_field", "get_fields", "print_field", "print_fields"]),
+            ("list", ["analyze", "get_field", "get_fields", "print_field", "print_fields"]),
+            ("suggest", ["analyze", "nested", "print_nested"]),
         ]
         
         total_methods = 0
@@ -53,7 +53,7 @@ class TestPackageFunctionality(unittest.TestCase):
                     self.fail(f"Method {method_name} missing")
         
         print(f"\n✅ All {total_methods} methods found and working!")
-        self.assertEqual(total_methods, 40, "Should have exactly 40 methods")
+        self.assertEqual(total_methods, 33, "Should have exactly 33 methods")
     
     def test_proxy_configuration(self):
         """Ensure proxy configuration can be set during init and updated later."""

@@ -1,6 +1,6 @@
 """
 List Methods Example
-Demonstrates all 6 list methods for getting top charts
+Demonstrates five list methods for getting top charts
 
 Parameters:
 - collection: Chart type - 'TOP_FREE', 'TOP_PAID', 'TOP_GROSSING' (default: 'TOP_FREE')
@@ -44,7 +44,3 @@ scraper.list_print_field(collection, "title", category, count=5, lang=lang, coun
 # 5. list_print_fields() - Print multiple fields from all apps
 print("\n5. list_print_fields(collection, fields, category='APPLICATION', count=100, lang='en', country='us')")
 scraper.list_print_fields(collection, ["title", "score"], category, count=5, lang=lang, country=country)
-
-# 6. list_print_all() - Print all top chart apps as JSON
-print("\n6. list_print_all(collection='TOP_FREE', category='APPLICATION', count=100, lang='en', country='us')")
-scraper.list_print_all(collection, category, count=5, lang=lang, country=country)

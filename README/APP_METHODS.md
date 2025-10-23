@@ -94,20 +94,6 @@ scraper.app_print_fields("com.whatsapp", ["icon", "screenshots"], assets="ORIGIN
 # Output: URLs with maximum image quality
 ```
 
-### `app_print_all(app_id, lang='en', country='us', assets=None)`
-Prints all fields as formatted JSON.
-
-```python
-scraper.app_print_all("com.whatsapp")
-# Output: Full JSON with all 65+ fields
-
-# Print with high-quality images
-scraper.app_print_all("com.whatsapp", assets="LARGE")
-# Output: Full JSON with 2048px image URLs
-```
-
----
-
 ## Available Fields (65+)
 
 ### Basic Information
@@ -296,7 +282,7 @@ The app_id is: `com.whatsapp`
 - **`app_get_fields()`** - Need several specific fields (more efficient than multiple get_field calls)
 - **`app_print_field()`** - Quick debugging/console output
 - **`app_print_fields()`** - Quick debugging of multiple values
-- **`app_print_all()`** - Explore available data structure
+- **`app_print_fields()`** - Explore available data structure
 
 ---
 

@@ -178,27 +178,27 @@ except Exception as exc:
 - **Search Methods**
   - `search_analyze()` – full search data
   - `search_get_field()` / `search_get_fields()` – targeted data
-  - `search_print_all()` – inspect structure
+  - `search_print_fields()` – inspect structure
 
 - **Reviews Methods**
   - `reviews_analyze()` – detailed review data
   - `reviews_get_field()` / `reviews_get_fields()` – specific fields
-  - `reviews_print_all()` – console snapshot
+  - `reviews_print_fields()` – console snapshot
 
 - **Developer Methods**
   - `developer_analyze()` – full portfolio
   - `developer_get_field()` / `developer_get_fields()` – targeted fields
-  - `developer_print_all()` – inspect structure
+  - `developer_print_fields()` – inspect structure
 
 - **List Methods**
   - `list_analyze()` – complete chart data
   - `list_get_field()` / `list_get_fields()` – specific fields
-  - `list_print_all()` – inspect structure
+  - `list_print_fields()` – inspect structure
 
 - **Similar Methods**
   - `similar_analyze()` – related apps payload
   - `similar_get_field()` / `similar_get_fields()` – specific values
-  - `similar_print_all()` – inspect structure
+  - `similar_print_fields()` – inspect structure
 
 - **Suggest Methods**
   - `suggest_analyze()` – suggestion list

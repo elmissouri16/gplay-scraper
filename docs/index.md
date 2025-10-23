@@ -1,6 +1,6 @@
 # GPlay Scraper Documentation
 
-GPlay Scraper is a Python library for extracting rich app data, reviews, and market intelligence from the Google Play Store without API keys. The library exposes 7 method families and 40+ convenience helpers to cover discovery, competitive research, and monitoring workflows.
+GPlay Scraper is a Python library for extracting rich app data, reviews, and market intelligence from the Google Play Store without API keys. The library exposes 7 method families and 30+ convenience helpers to cover discovery, competitive research, and monitoring workflows.
 
 ![GPlay Scraper](https://github.com/Mohammedcha/gplay-scraper/blob/main/assets/gplay-scraper.png)
 
@@ -20,13 +20,15 @@ from gplay_scraper import GPlayScraper
 scraper = GPlayScraper()
 
 # App methods
-scraper.app_print_all("com.whatsapp", lang="en", country="us")
+app_data = scraper.app_analyze("com.whatsapp", lang="en", country="us")
+print(app_data["title"])
 
 # Search methods
-scraper.search_print_all("productivity apps", count=10, lang="en", country="us")
+top_apps = scraper.search_get_fields("productivity apps", ["title", "developer"], count=10, lang="en", country="us")
+print(top_apps[:3])
 
 # Reviews methods
-scraper.reviews_print_all("com.whatsapp", count=40, sort="NEWEST")
+scraper.reviews_print_fields("com.whatsapp", ["userName", "score"], count=10, sort="NEWEST")
 ```
 
 ## Documentation Map

@@ -53,7 +53,7 @@
 **✅ Assets Parameter:**
 - **Configurable Image Sizes** - Control image quality for icons, screenshots, and media
 - **4 Size Options** - SMALL (512px), MEDIUM (1024px), LARGE (2048px), ORIGINAL (max)
-- **All App Methods** - Available in app_analyze(), app_get_field(), app_get_fields(), app_print_field(), app_print_fields(), app_print_all()
+- **All App Methods** - Available in app_analyze(), app_get_field(), app_get_fields(), app_print_field(), app_print_fields()
 - **Release Date Fallback** - Fixed missing release dates with automatic fallback requests
 - **Path Resolution** - Improved data extraction reliability
 
@@ -70,7 +70,7 @@
 
 **Powerful & Flexible**
 - **curl_cffi HTTP client** - Chrome impersonation with modern TLS fingerprinting
-- **42 functions across 7 method types** - analyze(), get_field(), get_fields(), print_field(), print_fields(), print_all()
+- **33 functions across 7 method types** - analyze(), get_field(), get_fields(), print_field(), print_fields()
 - **No API keys required** - Direct scraping from Google Play Store
 - **Multi-language & multi-region** - 100+ languages, 150+ countries
 
@@ -130,7 +130,7 @@ scraper_with_proxy.set_proxies(None)  # Disable proxy when no longer needed
 
 # Get app details with different image sizes
 app_id = "com.whatsapp"
-scraper.app_print_all(app_id, lang="en", country="us", assets="LARGE")
+scraper.app_print_fields(app_id, ["title", "score"], lang="en", country="us", assets="LARGE")
 
 # Get high-quality app data
 data = scraper.app_analyze(app_id, assets="ORIGINAL")  # Maximum image quality
@@ -141,22 +141,23 @@ scraper.app_print_field(app_id, "icon", assets="LARGE")  # Print large icon URL
 scraper.app_print_fields(app_id, ["icon", "screenshots"], assets="ORIGINAL")  # Print multiple fields
 
 # Search for apps
-scraper.search_print_all("social media", count=10, lang="en", country="us")
+scraper.search_print_fields("social media", ["title", "developer"], count=10, lang="en", country="us")
 
 # Get reviews
-scraper.reviews_print_all(app_id, count=50, sort="NEWEST", lang="en", country="us")
+scraper.reviews_print_fields(app_id, ["userName", "score"], count=50, sort="NEWEST", lang="en", country="us")
 
 # Get developer apps
-scraper.developer_print_all("5700313618786177705", count=20, lang="en", country="us")
+scraper.developer_print_fields("5700313618786177705", ["title", "score"], count=20, lang="en", country="us")
 
 # Get top charts
-scraper.list_print_all("TOP_FREE", "GAME", count=20, lang="en", country="us")
+scraper.list_print_fields("TOP_FREE", "GAME", ["title", "score"], count=20, lang="en", country="us")
 
 # Get similar apps
-scraper.similar_print_all(app_id, count=30, lang="en", country="us")
+scraper.similar_print_fields(app_id, ["title", "score"], count=30, lang="en", country="us")
 
 # Get search suggestions
-scraper.suggest_print_all("fitness", count=5, lang="en", country="us")
+suggestions = scraper.suggest_analyze("fitness", count=5, lang="en", country="us")
+print(suggestions)
 ```
 
 Proxy configuration accepts either a single URL string (applied to both HTTP and
@@ -165,7 +166,7 @@ above.
 
 ## 🎯 7 Method Types
 
-GPlay Scraper provides 7 method types with 42 functions to interact with Google Play Store data:
+GPlay Scraper provides 7 method types with 33 functions to interact with Google Play Store data:
 
 ### 1. [App Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/APP_METHODS.md) - Extract app details (65+ fields)
 ### 2. [Search Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SEARCH_METHODS.md) - Search for apps by keyword
@@ -175,13 +176,13 @@ GPlay Scraper provides 7 method types with 42 functions to interact with Google 
 ### 6. [Similar Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SIMILAR_METHODS.md) - Find similar/related apps
 ### 7. [Suggest Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SUGGEST_METHODS.md) - Get search suggestions/autocomplete
 
-Each method type has 6 functions:
+Each method type has 5 core functions:
 - `analyze()` - Get all data as dictionary/list
 - `get_field()` - Get single field value
 - `get_fields()` - Get multiple fields
 - `print_field()` - Print single field to console
 - `print_fields()` - Print multiple fields to console
-- `print_all()` - Print all data as JSON
+Suggest methods additionally offer `nested()` / `print_nested()` helpers for second-level suggestions.
 
 ## 🎯 Method Examples
 
@@ -195,8 +196,10 @@ from gplay_scraper import GPlayScraper
 
 scraper = GPlayScraper()
 
-# Print all app data as JSON
-scraper.app_print_all("com.whatsapp", lang="en", country="us")
+# Analyze app data and print selected fields
+data = scraper.app_analyze("com.whatsapp", lang="en", country="us")
+print(f"{data['title']} — {data['score']} stars")
+scraper.app_print_fields("com.whatsapp", ["title", "installs", "free"], lang="en", country="us")
 ```
 
 **What you get:** Complete app profile with title, developer, ratings, install counts, pricing, screenshots, permissions, and more.
@@ -215,8 +218,8 @@ from gplay_scraper import GPlayScraper
 
 scraper = GPlayScraper()
 
-# Print all search results as JSON
-scraper.search_print_all("fitness tracker", count=20, lang="en", country="us")
+# Print selected details from search results
+scraper.search_print_fields("fitness tracker", ["title", "developer"], count=20, lang="en", country="us")
 ```
 
 **What you get:** List of apps matching your search with titles, developers, ratings, prices, and Play Store URLs.
@@ -235,8 +238,8 @@ from gplay_scraper import GPlayScraper
 
 scraper = GPlayScraper()
 
-# Print all reviews as JSON
-scraper.reviews_print_all("com.whatsapp", count=100, sort="NEWEST", lang="en", country="us")
+# Print reviewer names and scores
+scraper.reviews_print_fields("com.whatsapp", ["userName", "score"], count=100, sort="NEWEST", lang="en", country="us")
 ```
 
 **What you get:** User reviews with names, ratings (1-5 stars), review text, timestamps, app versions, and helpful vote counts.
@@ -255,8 +258,8 @@ from gplay_scraper import GPlayScraper
 
 scraper = GPlayScraper()
 
-# Print all developer apps as JSON
-scraper.developer_print_all("5700313618786177705", count=50, lang="en", country="us")
+# Print portfolio summary
+scraper.developer_print_fields("5700313618786177705", ["title", "score"], count=50, lang="en", country="us")
 ```
 
 **What you get:** Complete portfolio of apps from a developer with titles, ratings, prices, and descriptions.
@@ -275,8 +278,8 @@ from gplay_scraper import GPlayScraper
 
 scraper = GPlayScraper()
 
-# Print top free games as JSON
-scraper.list_print_all("TOP_FREE", "GAME", count=50, lang="en", country="us")
+# Print top free games summary
+scraper.list_print_fields("TOP_FREE", "GAME", ["title", "score"], count=50, lang="en", country="us")
 ```
 
 **What you get:** Top-ranked apps with titles, developers, ratings, install counts, prices, and screenshots.
@@ -295,8 +298,8 @@ from gplay_scraper import GPlayScraper
 
 scraper = GPlayScraper()
 
-# Print similar apps as JSON
-scraper.similar_print_all("com.whatsapp", count=30, lang="en", country="us")
+# Print similar apps summary
+scraper.similar_print_fields("com.whatsapp", ["title", "score"], count=30, lang="en", country="us")
 ```
 
 **What you get:** List of similar/competitor apps with titles, developers, ratings, and pricing information.
@@ -315,8 +318,8 @@ from gplay_scraper import GPlayScraper
 
 scraper = GPlayScraper()
 
-# Print search suggestions as JSON
-scraper.suggest_print_all("photo editor", count=10, lang="en", country="us")
+# Print nested search suggestions
+scraper.suggest_print_nested("photo editor", count=10, lang="en", country="us")
 ```
 
 **What you get:** List of popular search terms related to your keyword for ASO and keyword research.

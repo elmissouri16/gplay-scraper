@@ -1,6 +1,6 @@
 """
 Reviews Methods Example
-Demonstrates all 6 reviews methods for extracting user reviews
+Demonstrates five reviews methods for extracting user reviews
 
 Parameters:
 - app_id: App package name
@@ -44,7 +44,3 @@ scraper.reviews_print_field(app_id, "score", count=5, lang=lang, country=country
 # 5. reviews_print_fields() - Print multiple fields from all reviews
 print("\n5. reviews_print_fields(app_id, fields, count=100, lang='en', country='us', sort='NEWEST')")
 scraper.reviews_print_fields(app_id, ["userName", "score"], count=5, lang=lang, country=country, sort=sort)
-
-# 6. reviews_print_all() - Print all reviews as JSON
-print("\n6. reviews_print_all(app_id, count=100, lang='en', country='us', sort='NEWEST')")
-scraper.reviews_print_all(app_id, count=5, lang=lang, country=country, sort=sort)

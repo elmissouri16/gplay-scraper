@@ -8,7 +8,7 @@ This page summarises the public surface of the library and links to the primary 
 
 - Main facade class used in all examples.
 - Provides 7 method families (`app_*`, `search_*`, `reviews_*`, `developer_*`, `list_*`, `similar_*`, `suggest_*`).
-- Each family implements `analyze`, `get_field`, `get_fields`, `print_field`, `print_fields`, and `print_all`.
+- Each family implements `analyze`, `get_field`, `get_fields`, `print_field`, and `print_fields`.
 - Optional parameters include `lang`, `country`, `count`, and `assets`.
 
 See the dedicated guides in `README/`:
@@ -52,7 +52,6 @@ The project ships with print helpers for quick console inspection:
 
 - `*_print_field()` – prints one field.
 - `*_print_fields()` – prints multiple fields.
-- `*_print_all()` – prints the entire payload with pretty JSON formatting.
 
 ## Versioning
 

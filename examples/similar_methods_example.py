@@ -1,6 +1,6 @@
 """
 Similar Methods Example
-Demonstrates all 6 similar methods for finding related apps
+Demonstrates five similar methods for finding related apps
 
 Parameters:
 - app_id: App package name
@@ -42,7 +42,3 @@ scraper.similar_print_field(app_id, "title", count=5, lang=lang, country=country
 # 5. similar_print_fields() - Print multiple fields from all similar apps
 print("\n5. similar_print_fields(app_id, fields, count=100, lang='en', country='us')")
 scraper.similar_print_fields(app_id, ["title", "score"], count=5, lang=lang, country=country)
-
-# 6. similar_print_all() - Print all similar apps as JSON
-print("\n6. similar_print_all(app_id, count=100, lang='en', country='us')")
-scraper.similar_print_all(app_id, count=5, lang=lang, country=country)

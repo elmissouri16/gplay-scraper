@@ -1,6 +1,6 @@
 """
 App Methods Example
-Demonstrates all 6 app methods for extracting app details
+Demonstrates five app methods for extracting app details
 
 Parameters:
 - app_id: App package name
@@ -41,7 +41,3 @@ scraper.app_print_field(app_id, "developer", lang=lang, country=country)
 # 5. app_print_fields() - Print multiple fields
 print("\n5. app_print_fields(app_id, fields, lang='en', country='us')")
 scraper.app_print_fields(app_id, ["title", "score", "free"], lang=lang, country=country)
-
-# 6. app_print_all() - Print all data as JSON
-print("\n6. app_print_all(app_id, lang='en', country='us')")
-scraper.app_print_all(app_id, lang=lang, country=country)

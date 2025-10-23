@@ -79,16 +79,6 @@ scraper.reviews_print_fields("com.whatsapp", ["userName", "score"], count=20)
 # userName: Jane, score: 4
 ```
 
-### `reviews_print_all(app_id, count=100, lang='en', country='us', sort='NEWEST')`
-Prints all review data as formatted JSON.
-
-```python
-scraper.reviews_print_all("com.whatsapp", count=50)
-# Output: Full JSON array with all reviews
-```
-
----
-
 ## Available Fields
 
 - `reviewId` - Unique review ID
@@ -295,7 +285,7 @@ for word, count in top_keywords:
 - **`reviews_get_fields()`** - Need specific fields (more efficient)
 - **`reviews_print_field()`** - Quick debugging/console output
 - **`reviews_print_fields()`** - Quick debugging of multiple fields
-- **`reviews_print_all()`** - Explore available data structure
+- **`reviews_print_fields()`** - Explore available data structure
 
 ---
 
