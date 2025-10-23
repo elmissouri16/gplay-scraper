@@ -23,14 +23,6 @@ apps = scraper.search_get_fields("photo editor", ["title", "score", "free"])
 print(apps)
 ```
 
----
-
-## HTTP Client
-
-GPlay Scraper now relies exclusively on [`curl_cffi`](https://github.com/yifeikong/curl_cffi) with a Chrome fingerprint. Initialising `GPlayScraper()` without arguments uses this client automatically; overriding the HTTP backend is not supported.
-
----
-
 ## Methods
 
 ### `search_analyze(query, count=100, lang='en', country='us')`

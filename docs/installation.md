@@ -3,7 +3,6 @@
 ## Requirements
 
 - Python 3.7 or newer
-- `curl-cffi` is installed automatically with the package
 - [`uv`](https://github.com/astral-sh/uv) 0.4+ (optional, recommended for contributors)
 
 ## Install from PyPI
@@ -54,7 +53,6 @@ print(f"Title preview: {title}")  # alternate smoke test
       sys.stdout.reconfigure(encoding="utf-8")
   ```
 
-- **HTTP client** – GPlay Scraper standardises on `curl_cffi`. Initialising `GPlayScraper()` uses this backend automatically and the client cannot be overridden.
 - **Proxy format** – Pass a single proxy string (applies to HTTP/HTTPS) or a mapping such as `{"http": "http://proxy", "https": "http://secure-proxy"}`; call `set_proxies(None)` to clear.
 
 - **Common parameters** – All methods accept `lang`, `country`, and `count`.

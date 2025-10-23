@@ -9,7 +9,7 @@ This guide walks through the core workflows supported by GPlay Scraper.
 ```python
 from gplay_scraper import GPlayScraper
 
-# curl_cffi is configured automatically
+# Networking is handled internally
 scraper = GPlayScraper()
 ```
 

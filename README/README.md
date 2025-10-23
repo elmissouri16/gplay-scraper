@@ -162,10 +162,6 @@ scraper.reviews_analyze("com.whatsapp", count=50, lang="fr", country="fr")
 - **Languages:** 100+ (en, es, fr, de, ja, ko, zh, ar, pt, ru, etc.)
 - **Countries:** 150+ (us, gb, ca, au, in, br, jp, kr, de, fr, etc.)
 
-## 🔧 HTTP Client
-
-GPlay Scraper now relies exclusively on [`curl_cffi`](https://github.com/yifeikong/curl_cffi) with built-in Chrome impersonation. Initialising `GPlayScraper()` without arguments uses this client automatically; there is no override parameter for alternate HTTP clients.
-
 ## 📊 What Can You Scrape?
 
 ### App Data (65+ Fields)

@@ -243,10 +243,6 @@ for lang, country, label in languages:
     print(f"  Description: {data['description'][:100]}...")
 ```
 
-## HTTP Client Reminder
-
-`GPlayScraper()` always uses `curl_cffi`; the HTTP backend is fixed and cannot be overridden.
-
 ## Real-World Use Cases
 
 - **Market research** – Compare competitors to understand market positioning and user sentiment.

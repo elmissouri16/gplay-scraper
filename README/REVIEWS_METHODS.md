@@ -24,14 +24,6 @@ reviews = scraper.reviews_get_fields("com.whatsapp", ["userName", "score", "cont
 print(reviews)
 ```
 
----
-
-## HTTP Client
-
-GPlay Scraper now relies exclusively on [`curl_cffi`](https://github.com/yifeikong/curl_cffi) with a Chrome fingerprint. Initialising `GPlayScraper()` without arguments uses this client automatically; overriding the HTTP backend is not supported.
-
----
-
 ## Methods
 
 ### `reviews_analyze(app_id, count=100, lang='en', country='us', sort='NEWEST')`

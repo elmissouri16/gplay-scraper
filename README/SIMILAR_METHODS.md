@@ -23,14 +23,6 @@ apps = scraper.similar_get_fields("com.whatsapp", ["title", "score", "free"])
 print(apps)
 ```
 
----
-
-## HTTP Client
-
-GPlay Scraper now relies exclusively on [`curl_cffi`](https://github.com/yifeikong/curl_cffi) with a Chrome fingerprint. Initialising `GPlayScraper()` without arguments uses this client automatically; overriding the HTTP backend is not supported.
-
----
-
 ## Methods
 
 ### `similar_analyze(app_id, count=100, lang='en', country='us')`

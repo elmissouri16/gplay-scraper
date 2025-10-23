@@ -23,14 +23,6 @@ apps = scraper.developer_get_fields("5700313618786177705", ["title", "score", "f
 print(apps)
 ```
 
----
-
-## HTTP Client
-
-GPlay Scraper now relies exclusively on [`curl_cffi`](https://github.com/yifeikong/curl_cffi) with a Chrome fingerprint. Initialising `GPlayScraper()` without arguments uses this client automatically; overriding the HTTP backend is not supported.
-
----
-
 ## Methods
 
 ### `developer_analyze(dev_id, count=100, lang='en', country='us')`

@@ -8,7 +8,6 @@ GPlay Scraper is a Python library for extracting rich app data, reviews, and mar
 
 - **7 method types** covering apps, search, reviews, developers, lists, similar, and suggestions.
 - **65+ data fields** including installs, pricing, media assets, permissions, and data safety info.
-- **curl_cffi-only HTTP backend** that impersonates Chrome for resilient scraping.
 - **Regional controls** for more than 100 languages and 150 countries.
 - **Type hints and dataclasses** for predictable outputs and IDE completion.
 
@@ -36,7 +35,6 @@ print(reviews[:3])
 
 - [Installation](installation.md)
 - [Quick Start Guide](quickstart.md)
-- [HTTP Client Details](http_client.md)
 - [Fields Reference](fields_reference.md)
 - [Configuration Guide](configuration.md)
 - [Usage Examples](examples.md)

@@ -31,6 +31,6 @@
 - State test outcomes explicitly and mention follow-up tasks or known limitations.
 
 ## Configuration & Operational Tips
-- `curl_cffi` is the sole supported HTTP backend; do not introduce alternative clients without discussion.
+- The network stack is fixed internally; do not introduce alternative clients without discussion.
 - Honour `Config.RATE_LIMIT_DELAY` and other defaults when extending features, exposing overrides through `Config` utilities or documented environment variables (`GPLAY_TIMEOUT`, `GPLAY_RATE_LIMIT`).
 - Keep secrets and proxies out of the repository; document required environment variables in examples instead.

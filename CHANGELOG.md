@@ -6,8 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Breaking Changes
 
-- Removed support for alternative HTTP clients; `curl_cffi` is now the sole backend.
-- Dropped the `http_client` initializer argument; the scraper always uses the bundled `curl_cffi` session.
+- Simplified network configuration; the scraper now relies on an internal session with no external backend hooks.
+- Dropped the `http_client` initializer argument; networking is fully managed by the scraper.
 
 ### Dependency Updates
 
@@ -60,7 +60,7 @@ print(summary)
 
 - **Code Review**: Addressed security vulnerabilities and code quality issues
 - **Error Handling**: Improved error handling patterns across all modules
-- **Performance**: Optimized JSON parsing and HTTP client fallback logic
+- **Performance**: Optimized JSON parsing and network fallback logic
 - **Security**: Fixed potential SSRF and injection vulnerabilities
 - **Maintainability**: Enhanced code readability and documentation
 
@@ -88,18 +88,6 @@ Each method type includes convenience helpers:
 - `get_fields()` - Get multiple fields as dictionary
 - Suggest methods additionally provide `nested()` for recursive suggestions
 
-#### 7 HTTP Clients with Automatic Fallback *(deprecated in Unreleased – replaced by curl_cffi-only backend)*
-
-- **requests** (default) - Standard Python HTTP library, reliable and well-tested
-- **curl_cffi** - Browser impersonation with TLS fingerprinting, best for avoiding detection
-- **tls_client** - Custom TLS fingerprinting, good for bypassing restrictions
-- **httpx** - Modern async-capable HTTP client with HTTP/2 support
-- **urllib3** - Low-level HTTP client with connection pooling
-- **cloudscraper** - Cloudflare bypass capabilities
-- **aiohttp** - Async HTTP client for high-performance concurrent requests
-
-Automatic fallback system tries clients in order until one succeeds, ensuring maximum reliability.
-
 #### Multi-Language & Multi-Region Support
 
 - Support for 100+ languages (en, es, fr, de, ja, ko, zh, ar, etc.)
@@ -121,7 +109,7 @@ Automatic fallback system tries clients in order until one succeeds, ensuring ma
 
 - **Modular Design**: Separate classes for methods, scrapers, and parsers
 - **Core Modules**: `gplay_methods.py`, `gplay_scraper.py`, `gplay_parser.py`
-- **HTTP Client Abstraction**: `HttpClient` class with pluggable client support
+- **Session Abstraction**: Dedicated class providing pluggable request handling
 - **Element Specs**: Reusable CSS selector specifications for data extraction
 - **Helper Utilities**: Text processing, date parsing, JSON cleaning, age calculation
 - **Exception Hierarchy**: 6 custom exception types for specific error scenarios
@@ -130,7 +118,6 @@ Automatic fallback system tries clients in order until one succeeds, ensuring ma
 
 - **Comprehensive Docstrings**: All 42 methods, 7 scrapers, 7 parsers, and utility functions documented
 - **Sphinx Documentation**: Professional HTML documentation with examples, API reference, and guides
-- **HTTP Clients Guide**: Detailed documentation on when and how to use each HTTP client
 - **Fields Reference**: Complete reference of all 65+ fields, categories, and parameters
 - **Unit Tests**: Complete test coverage for all 7 method types
 - **Examples**: Real-world usage examples for each method type
@@ -149,7 +136,6 @@ Automatic fallback system tries clients in order until one succeeds, ensuring ma
 - Complete API redesign - not backward compatible with v1.0.1
 - Method names changed from `get_app_details()` to `app_analyze()`
 - New parameter structure for all methods
-- HTTP client must be specified or uses automatic fallback
 - Exception types renamed and reorganized
 
 ### Migration Guide
@@ -170,7 +156,7 @@ data = scraper.app_analyze("com.whatsapp")
 
 - Faster JSON parsing with optimized regex patterns
 - Reduced memory usage with streaming parsers
-- Better caching of HTTP client instances
+- Better caching of internal network sessions
 - Parallel request support with async clients
 
 ### Bug Fixes

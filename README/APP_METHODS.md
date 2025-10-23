@@ -22,14 +22,6 @@ info = scraper.app_get_fields("com.whatsapp", ["title", "score", "developer"])
 print(info)
 ```
 
----
-
-## HTTP Client
-
-GPlay Scraper now relies exclusively on [`curl_cffi`](https://github.com/yifeikong/curl_cffi) with a Chrome fingerprint. Initialising `GPlayScraper()` without arguments uses this client automatically; overriding the HTTP backend is not supported.
-
----
-
 ## Methods
 
 ### `app_analyze(app_id, lang='en', country='us', assets=None)`

@@ -20,14 +20,6 @@ for term, suggestions in nested.items():
     print(f"{term}: {suggestions}")
 ```
 
----
-
-## HTTP Client
-
-GPlay Scraper now relies exclusively on [`curl_cffi`](https://github.com/yifeikong/curl_cffi) with a Chrome fingerprint. Initialising `GPlayScraper()` without arguments uses this client automatically; overriding the HTTP backend is not supported.
-
----
-
 ## Methods
 
 ### `suggest_analyze(term, count=5, lang='en', country='us')`

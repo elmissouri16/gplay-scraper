@@ -69,14 +69,13 @@
 ## ⚡ Key Features
 
 **Powerful & Flexible**
-- **curl_cffi HTTP client** - Chrome impersonation with modern TLS fingerprinting
 - **20 functions across 7 method types** - analyze(), get_field(), get_fields()
 - **No API keys required** - Direct scraping from Google Play Store
 - **Multi-language & multi-region** - 100+ languages, 150+ countries
 
 **Reliable & Safe**
 - **Built-in rate limiting** - Prevents blocking with automatic delays
-- **Resilient session management** - Single curl_cffi session with retry handling
+- **Resilient session management** - Single shared session with retry handling
 - **Error handling** - Graceful failures with informative messages
 - **Retry logic** - Automatic retries for failed requests
 
@@ -89,7 +88,6 @@
 ## 📋 Requirements
 
 - Python 3.7+
-- curl-cffi (bundled HTTP client)
 
 ## 🚀 Installation
 
@@ -111,7 +109,7 @@ uv pip install --editable .
 ```python
 from gplay_scraper import GPlayScraper
 
-# Initialize scraper (curl_cffi is used internally)
+# Initialize scraper
 scraper = GPlayScraper()
 
 # Route traffic through a proxy (string applies to both http/https)

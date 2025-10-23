@@ -65,7 +65,7 @@ class Config:
         "RATE_LIMIT_SLEEP": "Rate limiting: sleeping for {sleep_time:.2f} seconds",
         "HTTP_CLIENT_NOT_AVAILABLE": "{client} not available",
         "HTTP_ERROR": "HTTP {status_code} Error",
-        "NO_HTTP_CLIENT": "No HTTP client libraries found",
+        "NO_HTTP_CLIENT": "No network libraries found",
         "APP_NOT_FOUND": "App not found: {app_id}",
         "SEARCH_NOT_FOUND": "Search not found: {query}",
         "REVIEWS_NOT_FOUND": "Reviews not found for app: {app_id}",

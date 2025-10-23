@@ -61,7 +61,7 @@ scraper.set_proxies(None)  # removes active proxies
 ```python
 from gplay_scraper import Config
 
-headers = Config.get_headers()             # curl_cffi sets a Chrome UA internally
+headers = Config.get_headers()             # internal session sets a Chrome UA by default
 custom = Config.get_headers("MyApp/1.0")   # only override if you must
 print(custom["User-Agent"])
 ```
@@ -202,7 +202,7 @@ except Exception as exc:
 
 - **Rate limiting** – Keep at least a one second delay to avoid throttling.
 - **Error handling** – Wrap scraper calls in try/except in production.
-- **HTTP backend** – `curl_cffi` is mandatory; the client is fixed and non-configurable.
+- **Network backend** – Managed internally; no custom client configuration is exposed.
 - **Use `get_fields()`** – Prefer batch getters over multiple `get_field()` calls.
 - **Timeouts** – Adjust to match your network’s characteristics.
 - **Logging** – Enable debug logs when diagnosing issues.

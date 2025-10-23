@@ -14,7 +14,7 @@ class AppScraper:
     """Scraper for fetching app details from Google Play Store."""
     
     def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
-        """Initialize AppScraper with HTTP client.
+        """Initialize AppScraper with an internal network session.
 
         Args:
             rate_limit_delay: Delay between requests
@@ -100,7 +100,7 @@ class SearchScraper:
     """Scraper for fetching search results from Google Play Store."""
     
     def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
-        """Initialize SearchScraper with HTTP client."""
+        """Initialize SearchScraper with an internal network session."""
         self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
@@ -223,7 +223,7 @@ class ReviewsScraper:
     }
     
     def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
-        """Initialize ReviewsScraper with HTTP client."""
+        """Initialize ReviewsScraper with an internal network session."""
         self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
@@ -295,7 +295,7 @@ class DeveloperScraper:
     """Scraper for fetching developer portfolio from Google Play Store."""
     
     def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
-        """Initialize DeveloperScraper with HTTP client."""
+        """Initialize DeveloperScraper with an internal network session."""
         self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
@@ -352,7 +352,7 @@ class SimilarScraper:
     """Scraper for fetching similar apps from Google Play Store."""
     
     def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
-        """Initialize SimilarScraper with HTTP client."""
+        """Initialize SimilarScraper with an internal network session."""
         self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
@@ -429,7 +429,7 @@ class ListScraper:
     }
     
     def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
-        """Initialize ListScraper with HTTP client."""
+        """Initialize ListScraper with an internal network session."""
         self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:
@@ -468,7 +468,7 @@ class SuggestScraper:
     """Scraper for fetching search suggestions from Google Play Store."""
 
     def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
-        """Initialize SuggestScraper with HTTP client."""
+        """Initialize SuggestScraper with an internal network session."""
         self.http_client = HttpClient(rate_limit_delay, proxies)
     
     def set_proxies(self, proxies: ProxyConfig) -> None:

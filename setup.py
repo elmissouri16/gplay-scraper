@@ -39,7 +39,7 @@ else:  # pragma: no cover - minimal fallback if tomllib/tomli unavailable
 setup(
     name="gplay-scraper",
     version="1.0.4",
-    description="🚀 Advanced Google Play Store Scraper - Extract 65+ app fields, reviews, ratings, ASO data, developer info, top charts, search results with a curl_cffi-powered HTTP client & unlimited pagination support",
+    description="🚀 Advanced Google Play Store Scraper - Extract 65+ app fields, reviews, ratings, ASO data, developer info, top charts, search results with a resilient network stack & unlimited pagination support",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Mohammed Cha",

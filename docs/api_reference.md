@@ -43,7 +43,7 @@ Catch these exceptions to deliver precise error handling in production scripts.
 - `gplay_scraper.core.gplay_scraper` – Orchestrates fetching, caching, and rate limiting.
 - `gplay_scraper.core.gplay_parser` – Parses Play Store payloads into structured dictionaries.
 - `gplay_scraper.models` – Dataclasses and element specifications used throughout the parser.
-- `gplay_scraper.utils.http_client` – Thin wrapper around `curl_cffi` providing retry and impersonation logic.
+- `gplay_scraper.utils.http_client` – Thin wrapper around the internal network session providing retry and impersonation logic.
 - `gplay_scraper.utils.helpers` – Utility functions for text cleaning, date parsing, and JSON post-processing.
 
 ## Formatting Helpers

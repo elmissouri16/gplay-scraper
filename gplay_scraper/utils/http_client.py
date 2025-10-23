@@ -1,4 +1,4 @@
-"""HTTP client wrapper around curl_cffi with rate limiting support."""
+"""Network session wrapper with rate limiting support."""
 
 import time
 import logging
@@ -14,10 +14,10 @@ ProxyConfig = Optional[Union[str, Dict[str, str]]]
 
 
 class HttpClient:
-    """HTTP client backed exclusively by curl_cffi."""
+    """Internal network session manager."""
 
     def __init__(self, rate_limit_delay: float = None, proxies: ProxyConfig = None):
-        """Initialize HTTP client backed by curl_cffi."""
+        """Initialize the network session manager."""
         self.headers = Config.get_headers()
         self.timeout = Config.DEFAULT_TIMEOUT
         self.rate_limit_delay = rate_limit_delay or Config.RATE_LIMIT_DELAY
@@ -27,7 +27,7 @@ class HttpClient:
         self._setup_client()
     
     def _setup_client(self):
-        """Setup curl_cffi session."""
+        """Setup the underlying session implementation."""
         try:
             from curl_cffi import requests as curl_requests
         except ImportError as exc:
@@ -43,7 +43,7 @@ class HttpClient:
         if isinstance(proxies, str):
             return {"http": proxies, "https": proxies}
         if isinstance(proxies, dict):
-            # Only keep string values to avoid curl_cffi issues
+            # Only keep string values to avoid session issues
             return {key: value for key, value in proxies.items() if isinstance(key, str) and isinstance(value, str)}
         raise TypeError("proxies must be a string or mapping of scheme to proxy URL")
     
@@ -369,7 +369,7 @@ class HttpClient:
             raise NetworkError(Config.ERROR_MESSAGES["SUGGEST_FETCH_FAILED"].format(term=term, error=e))
 
     def _make_request(self, method: str, url: str, **kwargs):
-        """Execute an HTTP request using curl_cffi."""
+        """Execute an HTTP request using the configured session."""
         headers = kwargs.get("headers", self.headers)
         data = kwargs.get("data")
         proxies = kwargs.get("proxies", self.proxies or None)
