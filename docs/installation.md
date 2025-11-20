@@ -20,7 +20,7 @@ uv pip install gplay-scraper
 ## Development Installation
 
 ```bash
-git clone https://github.com/mohammedcha/gplay-scraper.git
+git clone https://github.com/elmissouri16/gplay-scraper.git
 cd gplay-scraper
 pip install -e .
 # or, using uv:

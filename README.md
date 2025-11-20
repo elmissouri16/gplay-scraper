@@ -1,15 +1,8 @@
 # Google Play Scraper - Python Library 📱
 
-[![PyPI version](https://badge.fury.io/py/gplay-scraper.svg)](https://badge.fury.io/py/gplay-scraper)
-[![Python](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Downloads](https://pepy.tech/badge/gplay-scraper)](https://pepy.tech/project/gplay-scraper)
-[![GitHub stars](https://img.shields.io/github/stars/Mohammedcha/gplay-scraper.svg)](https://github.com/Mohammedcha/gplay-scraper/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/Mohammedcha/gplay-scraper.svg)](https://github.com/Mohammedcha/gplay-scraper/issues)
+> [!NOTE]
+> This is a fork of [gplay-scraper](https://github.com/Mohammedcha/gplay-scraper). I attempted to contribute to the original project, but it became clear that the author and I have different goals for the library's direction. This fork will continue development with a focus on my specific use cases and requirements.
 
-<div align="center">
-  <img src="https://github.com/Mohammedcha/gplay-scraper/blob/main/assets/gplay-scraper.png" alt="GPlay Scraper">
-</div>
 
 **GPlay Scraper** is a powerful Python library for extracting comprehensive data from the Google Play Store. Built for developers, data analysts, and researchers, it provides easy access to app information, user reviews, search results, top charts, and market intelligence—all without requiring API keys.
 
@@ -48,23 +41,6 @@
 - Localized pricing and availability
 - Competitive analysis and benchmarking
 
-## 🆕 **What's New in v1.0.4** 
-
-**✅ Assets Parameter:**
-- **Configurable Image Sizes** - Control image quality for icons, screenshots, and media
-- **4 Size Options** - SMALL (512px), MEDIUM (1024px), LARGE (2048px), ORIGINAL (max)
-- **All App Methods** - Available in app_analyze(), app_get_field(), app_get_fields()
-- **Release Date Fallback** - Fixed missing release dates with automatic fallback requests
-- **Path Resolution** - Improved data extraction reliability
-
-**✅ 7 Method Types:**
-- **App Methods** - Extract 65+ data fields from any app (ratings, installs, pricing, permissions, etc.)
-- **Search Methods** - Search Google Play Store apps with comprehensive filtering
-- **Reviews Methods** - Extract user reviews with ratings, timestamps, and detailed feedback
-- **Developer Methods** - Get all apps published by a specific developer
-- **List Methods** - Access top charts (top free, top paid, top grossing) by category
-- **Similar Methods** - Find similar/competitor apps for market research
-- **Suggest Methods** - Get search suggestions and autocomplete for ASO
 
 ## ⚡ Key Features
 
@@ -175,13 +151,13 @@ above.
 
 GPlay Scraper provides 7 method types with 20 helper functions to interact with Google Play Store data:
 
-### 1. [App Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/APP_METHODS.md) - Extract app details (65+ fields)
-### 2. [Search Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SEARCH_METHODS.md) - Search for apps by keyword
-### 3. [Reviews Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/REVIEWS_METHODS.md) - Get user reviews and ratings
-### 4. [Developer Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/DEVELOPER_METHODS.md) - Get all apps from a developer
-### 5. [List Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/LIST_METHODS.md) - Get top charts (free, paid, grossing)
-### 6. [Similar Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SIMILAR_METHODS.md) - Find similar/related apps
-### 7. [Suggest Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SUGGEST_METHODS.md) - Get search suggestions/autocomplete
+### 1. [App Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/APP_METHODS.md) - Extract app details (65+ fields)
+### 2. [Search Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/SEARCH_METHODS.md) - Search for apps by keyword
+### 3. [Reviews Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/REVIEWS_METHODS.md) - Get user reviews and ratings
+### 4. [Developer Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/DEVELOPER_METHODS.md) - Get all apps from a developer
+### 5. [List Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/LIST_METHODS.md) - Get top charts (free, paid, grossing)
+### 6. [Similar Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/SIMILAR_METHODS.md) - Find similar/related apps
+### 7. [Suggest Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/SUGGEST_METHODS.md) - Get search suggestions/autocomplete
 
 Each method type exposes three core functions:
 - `analyze()` - Get all data as dictionary/list
@@ -192,10 +168,10 @@ Suggest methods additionally offer `nested()` for second-level suggestions.
 
 ## 🎯 Method Examples
 
-### 1. [App Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/APP_METHODS.md) - Get App Details
+### 1. [App Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/APP_METHODS.md) - Get App Details
 Extract comprehensive information about any app including ratings, installs, pricing, and 65+ data fields.
 
-📖 **[View detailed documentation →](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/APP_METHODS.md)**
+📖 **[View detailed documentation →](https://github.com/elmissouri16/gplay-scraper/blob/main/README/APP_METHODS.md)**
 
 ```python
 from gplay_scraper import GPlayScraper
@@ -211,14 +187,14 @@ print(f"{fields['title']} — {fields['installs']} installs — {'Free' if field
 
 **What you get:** Complete app profile with title, developer, ratings, install counts, pricing, screenshots, permissions, and more.
 
-📄 **[View JSON example →](https://github.com/Mohammedcha/gplay-scraper/blob/main/output/app_example.json)**
+📄 **[View JSON example →](https://github.com/elmissouri16/gplay-scraper/blob/main/output/app_example.json)**
 
 ---
 
-### 2. [Search Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SEARCH_METHODS.md) - Find Apps by Keyword
+### 2. [Search Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/SEARCH_METHODS.md) - Find Apps by Keyword
 Search the Play Store by keyword, app name, or category to discover apps.
 
-📖 **[View detailed documentation →](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SEARCH_METHODS.md)**
+📖 **[View detailed documentation →](https://github.com/elmissouri16/gplay-scraper/blob/main/README/SEARCH_METHODS.md)**
 
 ```python
 from gplay_scraper import GPlayScraper
@@ -233,14 +209,14 @@ for app in results[:5]:
 
 **What you get:** List of apps matching your search with titles, developers, ratings, prices, and Play Store URLs.
 
-📄 **[View JSON example →](https://github.com/Mohammedcha/gplay-scraper/blob/main/output/search_example.json)**
+📄 **[View JSON example →](https://github.com/elmissouri16/gplay-scraper/blob/main/output/search_example.json)**
 
 ---
 
-### 3. [Reviews Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/REVIEWS_METHODS.md) - Extract User Reviews
+### 3. [Reviews Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/REVIEWS_METHODS.md) - Extract User Reviews
 Get user reviews with ratings, comments, timestamps, and helpful votes for sentiment analysis.
 
-📖 **[View detailed documentation →](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/REVIEWS_METHODS.md)**
+📖 **[View detailed documentation →](https://github.com/elmissouri16/gplay-scraper/blob/main/README/REVIEWS_METHODS.md)**
 
 ```python
 from gplay_scraper import GPlayScraper
@@ -255,14 +231,14 @@ for review in reviews[:5]:
 
 **What you get:** User reviews with names, ratings (1-5 stars), review text, timestamps, app versions, and helpful vote counts.
 
-📄 **[View JSON example →](https://github.com/Mohammedcha/gplay-scraper/blob/main/output/reviews_example.json)**
+📄 **[View JSON example →](https://github.com/elmissouri16/gplay-scraper/blob/main/output/reviews_example.json)**
 
 ---
 
-### 4. [Developer Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/DEVELOPER_METHODS.md) - Get Developer's Apps
+### 4. [Developer Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/DEVELOPER_METHODS.md) - Get Developer's Apps
 Retrieve all apps published by a specific developer using their developer ID.
 
-📖 **[View detailed documentation →](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/DEVELOPER_METHODS.md)**
+📖 **[View detailed documentation →](https://github.com/elmissouri16/gplay-scraper/blob/main/README/DEVELOPER_METHODS.md)**
 
 ```python
 from gplay_scraper import GPlayScraper
@@ -277,14 +253,14 @@ for app in portfolio[:5]:
 
 **What you get:** Complete portfolio of apps from a developer with titles, ratings, prices, and descriptions.
 
-📄 **[View JSON example →](https://github.com/Mohammedcha/gplay-scraper/blob/main/output/developer_example.json)**
+📄 **[View JSON example →](https://github.com/elmissouri16/gplay-scraper/blob/main/output/developer_example.json)**
 
 ---
 
-### 5. [List Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/LIST_METHODS.md) - Get Top Charts
+### 5. [List Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/LIST_METHODS.md) - Get Top Charts
 Access Play Store top charts including top free, top paid, and top grossing apps by category.
 
-📖 **[View detailed documentation →](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/LIST_METHODS.md)**
+📖 **[View detailed documentation →](https://github.com/elmissouri16/gplay-scraper/blob/main/README/LIST_METHODS.md)**
 
 ```python
 from gplay_scraper import GPlayScraper
@@ -299,14 +275,14 @@ for app in top_free_games[:5]:
 
 **What you get:** Top-ranked apps with titles, developers, ratings, install counts, prices, and screenshots.
 
-📄 **[View JSON example →](https://github.com/Mohammedcha/gplay-scraper/blob/main/output/list_example.json)**
+📄 **[View JSON example →](https://github.com/elmissouri16/gplay-scraper/blob/main/output/list_example.json)**
 
 ---
 
-### 6. [Similar Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SIMILAR_METHODS.md) - Find Related Apps
+### 6. [Similar Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/SIMILAR_METHODS.md) - Find Related Apps
 Discover apps similar to a reference app for competitive analysis and market research.
 
-📖 **[View detailed documentation →](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SIMILAR_METHODS.md)**
+📖 **[View detailed documentation →](https://github.com/elmissouri16/gplay-scraper/blob/main/README/SIMILAR_METHODS.md)**
 
 ```python
 from gplay_scraper import GPlayScraper
@@ -321,14 +297,14 @@ for app in similar_apps[:5]:
 
 **What you get:** List of similar/competitor apps with titles, developers, ratings, and pricing information.
 
-📄 **[View JSON example →](https://github.com/Mohammedcha/gplay-scraper/blob/main/output/similar_example.json)**
+📄 **[View JSON example →](https://github.com/elmissouri16/gplay-scraper/blob/main/output/similar_example.json)**
 
 ---
 
-### 7. [Suggest Methods](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SUGGEST_METHODS.md) - Get Search Suggestions
+### 7. [Suggest Methods](https://github.com/elmissouri16/gplay-scraper/blob/main/README/SUGGEST_METHODS.md) - Get Search Suggestions
 Get autocomplete suggestions and keyword ideas for ASO and market research.
 
-📖 **[View detailed documentation →](https://github.com/Mohammedcha/gplay-scraper/blob/main/README/SUGGEST_METHODS.md)**
+📖 **[View detailed documentation →](https://github.com/elmissouri16/gplay-scraper/blob/main/README/SUGGEST_METHODS.md)**
 
 ```python
 from gplay_scraper import GPlayScraper
@@ -343,22 +319,6 @@ for seed, suggestions in list(nested.items())[:3]:
 
 **What you get:** List of popular search terms related to your keyword for ASO and keyword research.
 
-📄 **[View JSON example →](https://github.com/Mohammedcha/gplay-scraper/blob/main/output/suggest_example.json)**
+📄 **[View JSON example →](https://github.com/elmissouri16/gplay-scraper/blob/main/output/suggest_example.json)**
 
 ---
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-**Happy Analyzing! 🚀**

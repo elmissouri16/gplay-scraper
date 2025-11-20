@@ -2,7 +2,7 @@
 
 GPlay Scraper is a Python library for extracting rich app data, reviews, and market intelligence from the Google Play Store without API keys. The library exposes 7 method families and 30+ convenience helpers to cover discovery, competitive research, and monitoring workflows.
 
-![GPlay Scraper](https://github.com/Mohammedcha/gplay-scraper/blob/main/assets/gplay-scraper.png)
+![GPlay Scraper](https://github.com/elmissouri16/gplay-scraper/blob/main/assets/gplay-scraper.png)
 
 ## Key Capabilities
 
@@ -56,5 +56,5 @@ The repository also includes detailed breakdowns for each method family in the [
 ## Need Help?
 
 - Use the examples to bootstrap scripts quickly.
-- File issues or feature requests on [GitHub](https://github.com/Mohammedcha/gplay-scraper/issues).
+- File issues or feature requests on [GitHub](https://github.com/elmissouri16/gplay-scraper/issues).
 - Join discussions in repository issues to share ideas or troubleshooting tips.
