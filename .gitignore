@@ -99,6 +99,8 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.venv-packaging-test
+.venv-packaging-test/
 env/
 venv/
 ENV/

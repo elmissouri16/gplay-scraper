@@ -53,7 +53,7 @@ class TestAppMethods(unittest.TestCase):
             result = self.scraper.app_get_fields(self.app_id, fields, lang=self.lang, country=self.country)
             if result:
                 self.assertIsInstance(result, dict)
-                print(f"\n✅ Multiple fields retrieved:")
+                print("\n✅ Multiple fields retrieved:")
                 for field, value in result.items():
                     print(f"  {field}: {value}")
         except (NetworkError, RateLimitError, GPlayScraperError) as e:

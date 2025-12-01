@@ -15,12 +15,16 @@ dev = [
     "pytest-cov>=4.0.0",
     "black>=22.0.0",
     "flake8>=5.0.0",
+    "wheel>=0.38.0",
 ]
 
 [tool.setuptools.packages.find]
 include = ["gplay_scraper", "gplay_scraper.*"]
 exclude = ["tests", "docs", "examples", "assets", "output", "README"]
 
+[tool.setuptools.cmdclass]
+install = "gplay_scraper.setup_commands.InstallCommand"
+
 [build-system]
-requires = ["setuptools>=61"]
+requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"
