@@ -16,3 +16,11 @@ dev = [
     "black>=22.0.0",
     "flake8>=5.0.0",
 ]
+
+[tool.setuptools.packages.find]
+include = ["gplay_scraper"]
+exclude = ["tests", "docs", "examples", "assets", "output", "README"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"

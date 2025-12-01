@@ -68,11 +68,10 @@
 ## 🚀 Installation
 
 ```bash
-# Install from PyPI (standard workflow)
-pip install gplay-scraper
-
-# Alternatively install with uv
-uv pip install gplay-scraper
+# Install directly from this repo (not published on PyPI)
+pip install "git+https://github.com/elmissouri16/gplay-scraper.git"
+# Alternatively with uv
+uv pip install "git+https://github.com/elmissouri16/gplay-scraper.git"
 
 # Develop locally in editable mode
 pip install -e .
