@@ -348,7 +348,7 @@ class ReviewsParser:
         if not content or not isinstance(content, str):
             return [], None
 
-        regex = re.compile(r"\)]}'\\n\\n([\\s\\S]+)")
+        regex = re.compile(r"\)]}'\n\n([\s\S]+)")
         matches = regex.findall(content)
 
         if not matches:

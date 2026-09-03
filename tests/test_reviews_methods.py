@@ -2,11 +2,48 @@
 Unit tests for Reviews Methods
 """
 
-import unittest
+import json
 import time
+import unittest
 import warnings
+
 from gplay_scraper import GPlayScraper
+from gplay_scraper.core.gplay_parser import ReviewsParser
 from gplay_scraper.exceptions import GPlayScraperError, NetworkError, RateLimitError
+
+
+class TestReviewsParser(unittest.TestCase):
+    """Deterministic tests for Google Play review response parsing."""
+
+    def test_parse_reviews_response_with_actual_newline_prefix(self):
+        """Parse batchexecute responses containing real newline separators."""
+        review_raw = [
+            "review-id",
+            ["Reviewer"],
+            3,
+            None,
+            "Useful review",
+            [1700000000],
+            4,
+            None,
+            None,
+            None,
+            "1.2.3",
+        ]
+        reviews_data = [[review_raw], [None, "next-page-token"], [None]]
+        response_data = [["wrb.fr", "oCPfdb", json.dumps(reviews_data)]]
+        response = ")]}'\n\n" + json.dumps(response_data)
+
+        reviews, next_token = ReviewsParser().parse_reviews_response(response)
+
+        self.assertEqual(len(reviews), 1)
+        self.assertEqual(reviews[0]["reviewId"], "review-id")
+        self.assertEqual(reviews[0]["userName"], "Reviewer")
+        self.assertEqual(reviews[0]["score"], 3)
+        self.assertEqual(reviews[0]["content"], "Useful review")
+        self.assertEqual(reviews[0]["thumbsUpCount"], 4)
+        self.assertEqual(reviews[0]["appVersion"], "1.2.3")
+        self.assertEqual(next_token, "next-page-token")
 
 
 class TestReviewsMethods(unittest.TestCase):
